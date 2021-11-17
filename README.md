@@ -1,6 +1,5 @@
 # DAT340-Marble-Eater
 What a thrill
-
 With darkness and silence through the night
 
 What a thrill
