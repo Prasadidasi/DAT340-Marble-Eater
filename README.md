@@ -1,7 +1,6 @@
 # DAT340-Marble-Eater
 What a thrill
 With darkness and silence through the night
-
 What a thrill
 
 I'm searching and I'll melt into you
