@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4406151299215108732}
   - component: {fileID: 7316312402978165634}
   - component: {fileID: -2551318280348917366}
-  - component: {fileID: 2030638642331935408}
+  - component: {fileID: 2265775501507499733}
   m_Layer: 0
   m_Name: Marble
   m_TagString: Untagged
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2030638642331935408
+--- !u!114 &2265775501507499733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,6 +122,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 839179604707747453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b3a060d15ef48afb566a1c0fb3246b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b665fbcbd1b2104c807b6af6c1e936a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0, z: 0}
+  GameStart: 0
