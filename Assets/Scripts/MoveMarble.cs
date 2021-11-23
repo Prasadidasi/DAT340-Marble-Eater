@@ -42,31 +42,46 @@ public class MoveMarble : MonoBehaviour
         if (other.gameObject.tag != "Marble") return;
 
         if (transform.localScale.x > other.transform.localScale.x) {
-            Destroy(other.gameObject);
-            //Kill(other.gameObject);
-            
-            //Mix the scales
-            float newScale = transform.localScale.x + (other.transform.localScale.x * 0.33f);
-            transform.localScale = new Vector3(newScale, newScale, newScale);
-            Debug.Log(other.gameObject.name + " is Destroyed");
-
-            //Mix the colors
-            Color newColor = (GetComponent<Renderer>().material.color + other.gameObject.GetComponent<Renderer>().material.color * 0.33f)/2;
-            GetComponent<Renderer>().material.color = newColor;
-
-            //Mix the mass
-            GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + other.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
+            Eat(other.gameObject);
+            Resurrect(other.gameObject);            
         }
     }
-    private void Kill(GameObject marble)
+    private void Eat(GameObject marble)
     {
         if (marble.CompareTag("Marble"))
         {
-            marble.GetComponent<MoveMarble>().GameStart = false;
-            marble.GetComponent<MoveMarble>().Alive = false;
-            marble.GetComponent<MeshRenderer>().enabled = false;
-            marble.GetComponent<Collider>().enabled = false;
-            Debug.Log(marble.gameObject.name + "is Killed");
+            marble.gameObject.SetActive(false);
+
+            //Mix the scales
+            float newScale = transform.localScale.x + (marble.transform.localScale.x * 0.33f);
+            transform.localScale = new Vector3(newScale, newScale, newScale);
+            Debug.Log(marble.gameObject.name + " is Destroyed");
+
+            //Mix the colors
+            Color newColor = (GetComponent<Renderer>().material.color + marble.gameObject.GetComponent<Renderer>().material.color * 0.33f) / 2;
+            GetComponent<Renderer>().material.color = newColor;
+
+            //Mix the mass
+            GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
         }
+    }
+    private Vector3 generateSpawnLocation()
+    {
+        Transform worldBoundry = gameObject.GetComponentInParent<Transform>();
+        float x = Random.Range(-1,1) * worldBoundry.localScale.x / 2;
+        float y = Random.Range(-1, 1) * worldBoundry.localScale.y / 2;
+        float z = Random.Range(-1, 1) * worldBoundry.localScale.z / 2;
+        return new Vector3(x,y,z);
+    }
+    private void Resurrect(GameObject marble)
+    {
+        /*  marble.GetComponent<MoveMarble>().Alive = true;
+          marble.GetComponent<MoveMarble>().GameStart = true;*/
+       // Debug.Log(get)
+        marble.gameObject.transform.position = generateSpawnLocation();
+        //Debug.Log("Respawn");
+        marble.SetActive(true);        
+        direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+ 
     }
 }
