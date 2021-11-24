@@ -43,7 +43,7 @@ public class MoveMarble : MonoBehaviour
 
         if (transform.localScale.x > other.transform.localScale.x) {
             Eat(other.gameObject);
-            Resurrect(other.gameObject);            
+            Respawn(other.gameObject);            
         }
     }
     private void Eat(GameObject marble)
@@ -58,8 +58,8 @@ public class MoveMarble : MonoBehaviour
             Debug.Log(marble.gameObject.name + " is Destroyed");
 
             //Mix the colors
-            Color newColor = (GetComponent<Renderer>().material.color + marble.gameObject.GetComponent<Renderer>().material.color * 0.33f) / 2;
-            GetComponent<Renderer>().material.color = newColor;
+            //Color newColor = (GetComponent<Renderer>().material.color + marble.gameObject.GetComponent<Renderer>().material.color * 0.33f) / 2;
+            //GetComponent<Renderer>().material.color = newColor;
 
             //Mix the mass
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
@@ -73,12 +73,25 @@ public class MoveMarble : MonoBehaviour
         float z = Random.Range(-1, 1) * worldBoundry.localScale.z / 2;
         return new Vector3(x,y,z);
     }
-    private void Resurrect(GameObject marble)
+    private void Respawn(GameObject marble)
     {
         marble.gameObject.transform.position = generateSpawnLocation();
         //Debug.Log("Respawn");
         marble.SetActive(true);        
         direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
  
+    }
+    
+    // Observer event, change color when the player marble's scale changes
+    // PM > EM, Green; PM < EM, Red; PM == EM, Blue
+    public void OnPlayerMarbleScaleChange(float scale)
+    {
+        //Debug.Log("Player Marble Size: "+scale+" ,Enemy Marble Size: "+transform.localScale.x);
+        Color color = new Color(0, 0, 0);
+        float localScale = transform.localScale.x;
+        color.r = scale < localScale ? 1 : 0;
+        color.g = scale > localScale ? 1 : 0;
+        color.b = scale.Equals(localScale) ? 1 : 0;
+        GetComponent<Renderer>().material.SetColor("_Color", color);
     }
 }

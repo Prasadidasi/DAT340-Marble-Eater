@@ -11,7 +11,8 @@ public class PSController : MonoBehaviour
     [SerializeField] private int startupTime = 10;
     private bool _gameStart = false;
     private int _realStartupTime;
-    void Start()
+
+    void Awake()
     {
         _realStartupTime = startupTime + 3;
         _marbles = new Transform[marbleNum];
@@ -23,6 +24,11 @@ public class PSController : MonoBehaviour
             _marbles[i].GetComponent<MoveMarble>().direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             _marbles[i].GetComponent<MoveMarble>().direction *= speed;
         }
+        AddObserver();
+    }
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
@@ -39,5 +45,23 @@ public class PSController : MonoBehaviour
         }
 
         if (_gameStart == false) Debug.Log("Game Starts In " + (_realStartupTime - (int)Time.realtimeSinceStartup));
+    }
+    
+    //Setup the Agent
+    private void AddObserver()
+    {
+        Agent.Instance.OnScaleChangeEvent += ForwardScaleChange;
+    }
+    
+    // Call each marble's observer event function
+    private void ForwardScaleChange(float scale)
+    {
+        foreach (var marble in _marbles)
+        {
+            if (marble.gameObject.activeInHierarchy)
+            {
+                marble.GetComponent<MoveMarble>().OnPlayerMarbleScaleChange(scale);
+            }
+        }
     }
 }
