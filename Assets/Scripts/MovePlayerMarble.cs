@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MovePlayerMarble : MonoBehaviour
 {
-    private Vector3 direction = new Vector3(0, 0, 0);
+    public bool Alive { get; set; }
+    public Vector3 direction = new Vector3(0,0,0);
     void Start()
     {
-        
+        Alive = true;
     }
 
     void FixedUpdate()
@@ -23,8 +24,7 @@ public class MovePlayerMarble : MonoBehaviour
 
         if (transform.localScale.x > other.transform.localScale.x)
         {
-            Destroy(other.gameObject);
-            //Kill(other.gameObject);
+            Destroy(other.gameObject); //Kill(other.gameObject);
 
             //Mix the scales
             float newScale = transform.localScale.x + (other.transform.localScale.x * 0.33f);
