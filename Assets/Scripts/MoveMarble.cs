@@ -75,9 +75,6 @@ public class MoveMarble : MonoBehaviour
     }
     private void Resurrect(GameObject marble)
     {
-        /*  marble.GetComponent<MoveMarble>().Alive = true;
-          marble.GetComponent<MoveMarble>().GameStart = true;*/
-       // Debug.Log(get)
         marble.gameObject.transform.position = generateSpawnLocation();
         //Debug.Log("Respawn");
         marble.SetActive(true);        
