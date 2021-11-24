@@ -9,6 +9,7 @@ public class PSController : MonoBehaviour
     private Transform[] _marbles;
     [SerializeField] private int speed = 1;  
     [SerializeField] private int startupTime = 10;
+    [SerializeField] private float GrowthRate = 0.2f;
     private bool _gameStart = false;
     private int _realStartupTime;
     void Start()
@@ -22,6 +23,7 @@ public class PSController : MonoBehaviour
             _marbles[i].GetComponent<Transform>().position = _marbles[i].GetComponent<Transform>().parent.position;
             _marbles[i].GetComponent<MoveMarble>().direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             _marbles[i].GetComponent<MoveMarble>().direction *= speed;
+            _marbles[i].GetComponent<MoveMarble>().growthRate = GrowthRate;
         }
     }
 
