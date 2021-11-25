@@ -13,7 +13,7 @@ public class MoveMarble : MonoBehaviour
     {
         Alive = true;
        // Color randomColor = ;
-        float scale = 2*Random.value + 0.3f;
+        float scale = 1.3f*Random.value + 0.3f;
        // GetComponent<Renderer>().material.SetColor("_Color", Color.red);
         //ChangeColor(Agent.Instance.Scale);
         GetComponent<Transform>().localScale *= scale;
@@ -39,7 +39,8 @@ public class MoveMarble : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         direction = direction * - 1;
-
+        if (transform.localScale.x > 3f)
+            return;
         if (GameStart == false) return;
         if (other.gameObject.tag != "Marble") return;
 
