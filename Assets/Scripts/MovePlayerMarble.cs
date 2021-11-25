@@ -14,7 +14,6 @@ public class MovePlayerMarble : MonoBehaviour
     void FixedUpdate()
     {
         gameObject.GetComponent<Rigidbody>().AddForce(direction * Time.deltaTime, ForceMode.Force);
- //       NotifyScaleChange();
     }
 
     private void OnCollisionEnter(Collision other)
