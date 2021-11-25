@@ -60,7 +60,7 @@ public class MoveMarble : MonoBehaviour
             //Mix the colors
             //Color newColor = (GetComponent<Renderer>().material.color + marble.gameObject.GetComponent<Renderer>().material.color * 0.33f) / 2;
             //GetComponent<Renderer>().material.color = newColor;
-
+            ChangeColor(Agent.Instance.Scale);
             //Mix the mass
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
         }
@@ -83,10 +83,14 @@ public class MoveMarble : MonoBehaviour
     }
     
     // Observer event, change color when the player marble's scale changes
-    // PM > EM, Green; PM < EM, Red; PM == EM, Blue
     public void OnPlayerMarbleScaleChange(float scale)
     {
-        //Debug.Log("Player Marble Size: "+scale+" ,Enemy Marble Size: "+transform.localScale.x);
+        ChangeColor(scale);
+    }
+    
+    // PM > EM, Green; PM < EM, Red; PM == EM, Blue
+    public void ChangeColor(float scale)
+    {
         Color color = new Color(0, 0, 0);
         float localScale = transform.localScale.x;
         color.r = scale < localScale ? 1 : 0;

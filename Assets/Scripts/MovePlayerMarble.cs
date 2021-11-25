@@ -59,7 +59,8 @@ public class MovePlayerMarble : MonoBehaviour
     {
         if (Agent.Instance.OnScaleChangeEvent != null)
         {
-            Agent.Instance.OnScaleChangeEvent(transform.localScale.x);
+            Agent.Instance.Scale = transform.localScale.x;
+            Agent.Instance.OnScaleChangeEvent(Agent.Instance.Scale);
         }
     }
     
