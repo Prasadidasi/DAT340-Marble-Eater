@@ -28,6 +28,10 @@ public class PSController : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        AddObserver();
+    }
     // Update is called once per frame
     void Update()
     {

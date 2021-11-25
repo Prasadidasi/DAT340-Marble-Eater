@@ -14,7 +14,8 @@ public class MoveMarble : MonoBehaviour
         Alive = true;
        // Color randomColor = ;
         float scale = 2*Random.value + 0.3f;
-        GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+       // GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        //ChangeColor(Agent.Instance.Scale);
         GetComponent<Transform>().localScale *= scale;
         GetComponent<Rigidbody>().mass = scale;
         
