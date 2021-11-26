@@ -14,8 +14,9 @@ public class MoveMarble : MonoBehaviour
     {
         Alive = true;
        // Color randomColor = ;
-        float scale = 2*Random.value + 0.3f;
-        GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        float scale = 1.3f*Random.value + 0.3f;
+       // GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        //ChangeColor(Agent.Instance.Scale);
         GetComponent<Transform>().localScale *= scale;
         GetComponent<Rigidbody>().mass = scale;
         
@@ -39,7 +40,8 @@ public class MoveMarble : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         direction = direction * - 1;
-
+        if (transform.localScale.x > 3f)
+            return;
         if (GameStart == false) return;
         if (other.gameObject.tag != "Marble") return;
 
@@ -48,8 +50,7 @@ public class MoveMarble : MonoBehaviour
             if (gameObject.transform.localScale.x < maxMarbleSize)
             {
             Eat(other.gameObject);
-            Resurrect(other.gameObject);
-            }
+            Respawn(other.gameObject);            
         }
     }
     private void Eat(GameObject marble)
@@ -63,12 +64,11 @@ public class MoveMarble : MonoBehaviour
             if (newScale > maxMarbleSize) newScale = maxMarbleSize;
             transform.localScale = new Vector3(newScale, newScale, newScale);
             Debug.Log(marble.gameObject.name + " is Destroyed");
-            
-            /*//Mix the colors
-            Color newColor = (GetComponent<Renderer>().material.color + marble.gameObject.GetComponent<Renderer>().material.color) / 2;
-            GetComponent<Renderer>().material.color = newColor;
-            */
 
+            //Mix the colors
+            //Color newColor = (GetComponent<Renderer>().material.color + marble.gameObject.GetComponent<Renderer>().material.color * 0.33f) / 2;
+            //GetComponent<Renderer>().material.color = newColor;
+            ChangeColor(Agent.Instance.Scale);
             //Mix the mass
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * growthRate);
         }
@@ -81,7 +81,7 @@ public class MoveMarble : MonoBehaviour
         float z = Random.Range(-1f, 1f) * worldBoundry.localScale.z / 2 + worldBoundry.position.z;
         return new Vector3(x,y,z);
     }
-    private void Resurrect(GameObject marble)
+    private void Respawn(GameObject marble)
     {
         Vector3 spawnLoc = generateSpawnLocation();
         marble.gameObject.transform.position = spawnLoc;
@@ -89,5 +89,22 @@ public class MoveMarble : MonoBehaviour
         Vector3 newdirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         direction = Vector3.Scale(direction, newdirection);
  
+    }
+    
+    // Observer event, change color when the player marble's scale changes
+    public void OnPlayerMarbleScaleChange(float scale)
+    {
+        ChangeColor(scale);
+    }
+    
+    // PM > EM, Green; PM < EM, Red; PM == EM, Blue
+    public void ChangeColor(float scale)
+    {
+        Color color = new Color(0, 0, 0);
+        float localScale = transform.localScale.x;
+        color.r = scale < localScale ? 1 : 0;
+        color.g = scale > localScale ? 1 : 0;
+        color.b = scale.Equals(localScale) ? 1 : 0;
+        GetComponent<Renderer>().material.SetColor("_Color", color);
     }
 }

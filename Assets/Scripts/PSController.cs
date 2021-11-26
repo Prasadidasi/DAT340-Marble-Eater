@@ -13,7 +13,8 @@ public class PSController : MonoBehaviour
     [SerializeField] private float maxMarbleSize= 4;
     private bool _gameStart = false;
     private int _realStartupTime;
-    void Start()
+
+    void Awake()
     {
         _realStartupTime = startupTime + 3;
         _marbles = new Transform[marbleNum];
@@ -29,6 +30,10 @@ public class PSController : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        AddObserver();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -43,5 +48,23 @@ public class PSController : MonoBehaviour
         }
 
         if (_gameStart == false) Debug.Log("Game Starts In " + (_realStartupTime - (int)Time.realtimeSinceStartup));
+    }
+    
+    //Setup the Agent
+    private void AddObserver()
+    {
+        Agent.Instance.OnScaleChangeEvent += ForwardScaleChange;
+    }
+    
+    // Call each marble's observer event function
+    private void ForwardScaleChange(float scale)
+    {
+        foreach (var marble in _marbles)
+        {
+            if (marble.gameObject.activeInHierarchy)
+            {
+                marble.GetComponent<MoveMarble>().OnPlayerMarbleScaleChange(scale);
+            }
+        }
     }
 }
