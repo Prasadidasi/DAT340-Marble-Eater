@@ -68,18 +68,20 @@ public class MoveMarble : MonoBehaviour
     }
     private Vector3 generateSpawnLocation()
     {
-        Transform worldBoundry = gameObject.GetComponentInParent<Transform>();
-        float x = Random.Range(-1,1) * worldBoundry.localScale.x / 2;
-        float y = Random.Range(-1, 1) * worldBoundry.localScale.y / 2;
-        float z = Random.Range(-1, 1) * worldBoundry.localScale.z / 2;
+        Transform worldBoundry = gameObject.transform.parent.transform.parent.GetComponent<Transform>(); // (>_<)
+        //Debug.Log(worldBoundry.localScale.x);
+        float x = Random.Range(-1f, 1f) * worldBoundry.localScale.x / 2 + worldBoundry.position.x;
+        float y = Random.Range(-1f, 1f) * worldBoundry.localScale.y / 2 + worldBoundry.position.y;
+        float z = Random.Range(-1f, 1f) * worldBoundry.localScale.z / 2 + worldBoundry.position.z;
         return new Vector3(x,y,z);
     }
     private void Resurrect(GameObject marble)
     {
         /*  marble.GetComponent<MoveMarble>().Alive = true;
           marble.GetComponent<MoveMarble>().GameStart = true;*/
-       // Debug.Log(get)
-        marble.gameObject.transform.position = generateSpawnLocation();
+        Vector3 spawnLoc = generateSpawnLocation();
+        Debug.Log(spawnLoc);
+        marble.gameObject.transform.position = spawnLoc;
         //Debug.Log("Respawn");
         marble.SetActive(true);        
         Vector3 newdirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
