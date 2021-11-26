@@ -1213,7 +1213,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6597246453946372862, guid: e2d6de3f88d82409fbf97ed6a9b7e272, type: 3}
       propertyPath: speed
-      value: 1000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 6597246453946372862, guid: e2d6de3f88d82409fbf97ed6a9b7e272, type: 3}
       propertyPath: marbleNum

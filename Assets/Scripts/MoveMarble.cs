@@ -7,7 +7,8 @@ public class MoveMarble : MonoBehaviour
     public bool Alive { get; set; }
     public Vector3 direction = new Vector3(0,0,0);
     public bool GameStart = false;
-    public float growthRate = 0.2f;
+    public float growthRate;
+    public float maxMarbleSize;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +44,12 @@ public class MoveMarble : MonoBehaviour
         if (other.gameObject.tag != "Marble") return;
 
         if (transform.localScale.x > other.transform.localScale.x) {
+
+            if (gameObject.transform.localScale.x < maxMarbleSize)
+            {
             Eat(other.gameObject);
-            Resurrect(other.gameObject);            
+            Resurrect(other.gameObject);
+            }
         }
     }
     private void Eat(GameObject marble)
@@ -55,12 +60,14 @@ public class MoveMarble : MonoBehaviour
 
             //Mix the scales
             float newScale = transform.localScale.x + (marble.transform.localScale.x * growthRate);
+            if (newScale > maxMarbleSize) newScale = maxMarbleSize;
             transform.localScale = new Vector3(newScale, newScale, newScale);
             Debug.Log(marble.gameObject.name + " is Destroyed");
-
-            //Mix the colors
+            
+            /*//Mix the colors
             Color newColor = (GetComponent<Renderer>().material.color + marble.gameObject.GetComponent<Renderer>().material.color) / 2;
             GetComponent<Renderer>().material.color = newColor;
+            */
 
             //Mix the mass
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * growthRate);
@@ -69,7 +76,6 @@ public class MoveMarble : MonoBehaviour
     private Vector3 generateSpawnLocation()
     {
         Transform worldBoundry = gameObject.transform.parent.transform.parent.GetComponent<Transform>(); // (>_<)
-        //Debug.Log(worldBoundry.localScale.x);
         float x = Random.Range(-1f, 1f) * worldBoundry.localScale.x / 2 + worldBoundry.position.x;
         float y = Random.Range(-1f, 1f) * worldBoundry.localScale.y / 2 + worldBoundry.position.y;
         float z = Random.Range(-1f, 1f) * worldBoundry.localScale.z / 2 + worldBoundry.position.z;
@@ -77,12 +83,8 @@ public class MoveMarble : MonoBehaviour
     }
     private void Resurrect(GameObject marble)
     {
-        /*  marble.GetComponent<MoveMarble>().Alive = true;
-          marble.GetComponent<MoveMarble>().GameStart = true;*/
         Vector3 spawnLoc = generateSpawnLocation();
-        Debug.Log(spawnLoc);
         marble.gameObject.transform.position = spawnLoc;
-        //Debug.Log("Respawn");
         marble.SetActive(true);        
         Vector3 newdirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         direction = Vector3.Scale(direction, newdirection);
