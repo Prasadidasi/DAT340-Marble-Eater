@@ -11,7 +11,13 @@ public class MarbleCatcher : MonoBehaviour
 
     private Rigidbody rigidBody;
     private SphereCollider sphereCollider;
+    private float maxPlayerSize;
 
+
+    private void Start()
+    {
+        maxPlayerSize = playerMarble.GetComponent<MovePlayerMarble>().maxPlayerSize;
+    }
     void Update()
     {
         if (rigidBody)
