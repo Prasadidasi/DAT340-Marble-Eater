@@ -13,11 +13,13 @@ public class PSController : MonoBehaviour
     [SerializeField] private float maxMarbleSize= 4;
     private bool _gameStart = false;
     private int _realStartupTime;
-
-    void Awake()
+    
+    void Start()
     {
+        AddObserver();
         _realStartupTime = startupTime + 3;
         _marbles = new Transform[marbleNum];
+        Debug.Log("PlayerMarbleScale:"+Agent.Instance.PlayerMarbleScale);
         for (int i = 0; i < marbleNum; i++)
         {
             _marbles[i] = Instantiate(marblePrefab);
@@ -27,12 +29,8 @@ public class PSController : MonoBehaviour
             _marbles[i].GetComponent<MoveMarble>().direction *= speed;
             _marbles[i].GetComponent<MoveMarble>().growthRate = GrowthRate;
             _marbles[i].GetComponent<MoveMarble>().maxMarbleSize = maxMarbleSize;
+            _marbles[i].GetComponent<MoveMarble>().ChangeColor(Agent.Instance.PlayerMarbleScale);
         }
-    }
-
-    void Start()
-    {
-        AddObserver();
     }
     // Update is called once per frame
     void Update()
@@ -47,7 +45,9 @@ public class PSController : MonoBehaviour
             Debug.Log("Game Started!");
         }
 
-        if (_gameStart == false) Debug.Log("Game Starts In " + (_realStartupTime - (int)Time.realtimeSinceStartup));
+        int timer = _realStartupTime - (int) Time.realtimeSinceStartup;
+        if (_gameStart == false) Debug.Log("Game Starts In " + timer);
+        NotifyTimer(timer);
     }
     
     //Setup the Agent
@@ -66,5 +66,10 @@ public class PSController : MonoBehaviour
                 marble.GetComponent<MoveMarble>().OnPlayerMarbleScaleChange(scale);
             }
         }
+    }
+
+    private void NotifyTimer(int timer)
+    {
+        Agent.Instance.GameStartTimer = timer;
     }
 }
