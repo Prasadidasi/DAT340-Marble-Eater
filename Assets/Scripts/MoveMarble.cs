@@ -30,8 +30,6 @@ public class MoveMarble : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         direction = direction * -1;
-        if (transform.localScale.x > 3f)
-            return;
         if (GameStart == false) return;
         if (other.gameObject.tag != "Marble") return;
 
