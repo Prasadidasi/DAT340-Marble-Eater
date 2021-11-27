@@ -45,10 +45,6 @@ public class MovePlayerMarble : MonoBehaviour
             if (newScale > maxPlayerSize) newScale = maxPlayerSize;
             transform.localScale = new Vector3(newScale, newScale, newScale);
             Debug.Log(marble.gameObject.name + " is Destroyed");
-
-            //Mix the colors
-            Color newColor = (GetComponent<Renderer>().material.color + marble.gameObject.GetComponent<Renderer>().material.color * 0.33f) / 2;
-            GetComponent<Renderer>().material.color = newColor;
             
             //Mix the mass
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
