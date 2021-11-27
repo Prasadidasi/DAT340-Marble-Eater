@@ -9,6 +9,8 @@ public class MoveMarble : MonoBehaviour
     public bool GameStart = false;
     public float growthRate;
     public float maxMarbleSize;
+    public Transform SpawnArea;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,17 +40,20 @@ public class MoveMarble : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        direction = direction * - 1;
+        direction = direction * -1;
 
         if (GameStart == false) return;
-        if (other.gameObject.tag != "Marble") return;
-
-        if (transform.localScale.x > other.transform.localScale.x) {
-
-            if (gameObject.transform.localScale.x < maxMarbleSize)
+        if (other.gameObject.tag == "Marble" || other.gameObject.tag == "PlayerMarble")
+        {
+            if (transform.localScale.x > other.transform.localScale.x)
             {
-            Eat(other.gameObject);
-            Resurrect(other.gameObject);
+                Debug.Log(gameObject.transform.localScale.x);
+                Debug.Log(maxMarbleSize);
+                if (gameObject.transform.localScale.x < maxMarbleSize)
+                {
+                    Eat(other.gameObject);
+                    Resurrect(other.gameObject);
+                }
             }
         }
     }
@@ -56,6 +61,7 @@ public class MoveMarble : MonoBehaviour
     {
         if (marble.CompareTag("Marble"))
         {
+            
             marble.gameObject.SetActive(false);
 
             //Mix the scales
@@ -75,10 +81,9 @@ public class MoveMarble : MonoBehaviour
     }
     private Vector3 generateSpawnLocation()
     {
-        Transform worldBoundry = gameObject.transform.parent.transform.parent.GetComponent<Transform>(); // (>_<)
-        float x = Random.Range(-1f, 1f) * worldBoundry.localScale.x / 2 + worldBoundry.position.x;
-        float y = Random.Range(-1f, 1f) * worldBoundry.localScale.y / 2 + worldBoundry.position.y;
-        float z = Random.Range(-1f, 1f) * worldBoundry.localScale.z / 2 + worldBoundry.position.z;
+        float x = Random.Range(-1f, 1f) * SpawnArea.localScale.x / 2 + SpawnArea.position.x;
+        float y = Random.Range(-1f, 1f) * SpawnArea.localScale.y / 2 + SpawnArea.position.y;
+        float z = Random.Range(-1f, 1f) * SpawnArea.localScale.z / 2 + SpawnArea.position.z;
         return new Vector3(x,y,z);
     }
     private void Resurrect(GameObject marble)

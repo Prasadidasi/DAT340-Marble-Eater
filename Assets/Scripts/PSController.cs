@@ -11,6 +11,7 @@ public class PSController : MonoBehaviour
     [SerializeField] private int startupTime = 10;
     [SerializeField] private float GrowthRate = 0.2f;
     [SerializeField] private float maxMarbleSize= 4;
+    [SerializeField] private Transform SpawnArea;
     private bool _gameStart = false;
     private int _realStartupTime;
     void Start()
@@ -26,6 +27,7 @@ public class PSController : MonoBehaviour
             _marbles[i].GetComponent<MoveMarble>().direction *= speed;
             _marbles[i].GetComponent<MoveMarble>().growthRate = GrowthRate;
             _marbles[i].GetComponent<MoveMarble>().maxMarbleSize = maxMarbleSize;
+            _marbles[i].GetComponent<MoveMarble>().SpawnArea = SpawnArea;
         }
     }
 
