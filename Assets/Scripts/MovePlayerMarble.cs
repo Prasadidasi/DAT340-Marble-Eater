@@ -7,7 +7,6 @@ public class MovePlayerMarble : MonoBehaviour
 {
     public float maxPlayerSize = 4;
     public float growthRate = 0.01f;
-    private bool GameStart = false;
     private Vector3 direction = new Vector3(0, 0, 0);
     [SerializeField] private int lives = 5;
     void Start()
@@ -26,6 +25,8 @@ public class MovePlayerMarble : MonoBehaviour
         direction = direction * -1;
 
         if (!other.gameObject.CompareTag("Marble")) return;
+
+        if (!isGameStart()) return;
 
         if (transform.localScale.x > other.transform.localScale.x)
         {
@@ -74,6 +75,14 @@ public class MovePlayerMarble : MonoBehaviour
     private void NotifyLives()
     {
         Agent.Instance.PlayerMarbleLives = lives;
+    }
+
+    private bool isGameStart()
+    {
+        if (Agent.Instance.GameStartTimer <= 0)
+            return true;
+        else
+            return false;
     }
     
 }
