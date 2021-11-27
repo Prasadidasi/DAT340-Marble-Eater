@@ -13,15 +13,13 @@ public class PSController : MonoBehaviour
     [SerializeField] private float maxMarbleSize= 4;
     private bool _gameStart = false;
     private int _realStartupTime;
-
-    void Awake()
-    {
-        AddObserver();
-    }
+    
     void Start()
     {
+        AddObserver();
         _realStartupTime = startupTime + 3;
         _marbles = new Transform[marbleNum];
+        Debug.Log("PlayerMarbleScale:"+Agent.Instance.PlayerMarbleScale);
         for (int i = 0; i < marbleNum; i++)
         {
             _marbles[i] = Instantiate(marblePrefab);

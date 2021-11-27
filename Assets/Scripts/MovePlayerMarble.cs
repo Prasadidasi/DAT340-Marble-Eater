@@ -7,9 +7,9 @@ public class MovePlayerMarble : MonoBehaviour
 {
     private Vector3 direction = new Vector3(0, 0, 0);
     [SerializeField] private int lives = 5;
-    void Awake()
+    void Start()
     {
-        NotifyScale();
+        NotifyScaleChange();
         NotifyLives();
     }
 
@@ -28,7 +28,7 @@ public class MovePlayerMarble : MonoBehaviour
         {
             //Mix the scales
             //Eat(other.gameObject);
-            //NotifyScale();
+            //NotifyScaleChange();
             //Mix the mass
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + other.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
         }
@@ -52,22 +52,25 @@ public class MovePlayerMarble : MonoBehaviour
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
             
             //Notify the Delegate
-            NotifyScale();
+            NotifyScaleChange();
             Agent.Instance.KilledMarbles++;
         }
     }
-    
+
+    private void NotifyScale()
+    {
+        Agent.Instance.PlayerMarbleScale = transform.localScale.x;
+    }
     // Subject notifies the Agent when scale changes.
     // Agent forwards the notification to Particle System
     // then Particle System calls Observers' event function
-    private void NotifyScale()
+    private void NotifyScaleChange()
     {
         if (Agent.Instance.OnScaleChangeEvent != null)
         {
-            Agent.Instance.PlayerMarbleScale = transform.localScale.x;
+            NotifyScale();
             Agent.Instance.OnScaleChangeEvent(Agent.Instance.PlayerMarbleScale);
         }
-
     }
 
     private void NotifyLives()

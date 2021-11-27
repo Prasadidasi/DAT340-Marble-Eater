@@ -17,11 +17,12 @@ public class Agent : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        PlayerMarbleScale = 0;
-        PlayerMarbleLives = 0;
-        GameStartTimer = 0;
-        KilledMarbles = 0;
+        
         Instance = this;
+        Instance.PlayerMarbleScale = 1.5f;
+        Instance.PlayerMarbleLives = 0;
+        Instance.GameStartTimer = 0;
+        Instance.KilledMarbles = 0;
     }
     
 }
