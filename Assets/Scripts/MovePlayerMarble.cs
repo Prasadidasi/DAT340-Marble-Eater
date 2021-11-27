@@ -6,9 +6,11 @@ using UnityEngine;
 public class MovePlayerMarble : MonoBehaviour
 {
     private Vector3 direction = new Vector3(0, 0, 0);
-    void Start()
+    [SerializeField] private int lives = 5;
+    void Awake()
     {
-        NotifyScaleChange();
+        NotifyScale();
+        NotifyLives();
     }
 
     void FixedUpdate()
@@ -20,13 +22,13 @@ public class MovePlayerMarble : MonoBehaviour
     {
         direction = direction * -1;
 
-        if (other.gameObject.tag != "Marble") return;
+        if (!other.gameObject.CompareTag("Marble")) return;
 
         if (transform.localScale.x > other.transform.localScale.x)
         {
             //Mix the scales
             //Eat(other.gameObject);
-            NotifyScaleChange();
+            //NotifyScale();
             //Mix the mass
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + other.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
         }
@@ -45,22 +47,32 @@ public class MovePlayerMarble : MonoBehaviour
             //Mix the colors
             Color newColor = (GetComponent<Renderer>().material.color + marble.gameObject.GetComponent<Renderer>().material.color * 0.33f) / 2;
             GetComponent<Renderer>().material.color = newColor;
-
+            
             //Mix the mass
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
+            
+            //Notify the Delegate
+            NotifyScale();
+            Agent.Instance.KilledMarbles++;
         }
     }
     
     // Subject notifies the Agent when scale changes.
     // Agent forwards the notification to Particle System
     // then Particle System calls Observers' event function
-    private void NotifyScaleChange()
+    private void NotifyScale()
     {
         if (Agent.Instance.OnScaleChangeEvent != null)
         {
-            Agent.Instance.Scale = transform.localScale.x;
-            Agent.Instance.OnScaleChangeEvent(Agent.Instance.Scale);
+            Agent.Instance.PlayerMarbleScale = transform.localScale.x;
+            Agent.Instance.OnScaleChangeEvent(Agent.Instance.PlayerMarbleScale);
         }
+
+    }
+
+    private void NotifyLives()
+    {
+        Agent.Instance.PlayerMarbleLives = lives;
     }
     
 }
