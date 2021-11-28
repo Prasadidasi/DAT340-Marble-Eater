@@ -969,7 +969,7 @@ PrefabInstance:
       objectReference: {fileID: 1040824074}
     - target: {fileID: 6597246453946372862, guid: e2d6de3f88d82409fbf97ed6a9b7e272, type: 3}
       propertyPath: marbleNum
-      value: 115
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6597246453946372862, guid: e2d6de3f88d82409fbf97ed6a9b7e272, type: 3}
       propertyPath: GrowthRate
@@ -1288,12 +1288,16 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 568200579622218725, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
+      propertyPath: lives
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 568200579622218725, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
       propertyPath: speed
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 568200579622218725, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
       propertyPath: maxPlayerSize
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 839179604707747453, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
       propertyPath: m_Name
@@ -1354,6 +1358,14 @@ PrefabInstance:
     - target: {fileID: 1640029352530731306, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406151299215108732, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316312402978165634, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}

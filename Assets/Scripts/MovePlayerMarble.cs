@@ -7,17 +7,42 @@ public class MovePlayerMarble : MonoBehaviour
 {
     public float maxPlayerSize = 4;
     public float growthRate = 0.01f;
+    public Vector3 initialSize;
+
     private Vector3 direction = new Vector3(0, 0, 0);
+    private bool playerStatus = false;
     [SerializeField] private int lives = 5;
+    private float deathTimer;
+
     void Start()
     {
         NotifyScaleChange();
         NotifyLives();
+        deathTimer = 3;
+        initialSize = transform.localScale;
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        gameObject.GetComponent<Rigidbody>().AddForce(direction * Time.deltaTime, ForceMode.Force);
+        if (playerStatus && lives > 0)
+        {
+            if (deathTimer > 0)
+            {
+                deathTimer -= Time.deltaTime;
+            }
+            else
+            {
+                Debug.Log("Player is Back!");
+                deathTimer = 0;
+                playerStatus = false; //player is Alive
+                gameObject.GetComponent<MeshRenderer>().enabled = true;
+                NotifyPlayerDeath();
+            }
+        }
+        else if (lives <= 0)
+        {
+            Debug.Log("Game Over!"); //to be implemented later
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -32,28 +57,44 @@ public class MovePlayerMarble : MonoBehaviour
         {
             Eat(other.gameObject);
             other.gameObject.GetComponent<MoveMarble>().Respawn(other.gameObject);
-            //NotifyScaleChange();
+            NotifyScaleChange();
+            GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + other.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
         }
     }
     private void Eat(GameObject marble)
     {
-        if (marble.CompareTag("Marble"))
-        {
-            marble.gameObject.SetActive(false);
+        marble.gameObject.SetActive(false);
 
-            //Mix the scales
-            float newScale = transform.localScale.x + Mathf.Abs((marble.transform.localScale.x) * growthRate);
-            if (newScale > maxPlayerSize) newScale = maxPlayerSize;
-            transform.localScale = new Vector3(newScale, newScale, newScale);
-            Debug.Log(marble.gameObject.name + " is Destroyed");
-            
-            //Mix the mass
-            GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
-            
-            //Notify the Delegate
-            NotifyScaleChange();
-            Agent.Instance.KilledMarbles++;
-        }
+        //Mix the scales
+        float newScale = transform.localScale.x + Mathf.Abs((marble.transform.localScale.x) * growthRate);
+        if (newScale > maxPlayerSize) newScale = maxPlayerSize;
+        transform.localScale = new Vector3(newScale, newScale, newScale);
+        marble.GetComponent<MoveMarble>().OnPlayerMarbleScaleChange(newScale);
+        Debug.Log(marble.gameObject.name + " is Destroyed");
+
+        //Mix the mass
+        GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
+
+        //Notify the Delegate
+        NotifyScaleChange();
+        Agent.Instance.KilledMarbles++;
+
+    }
+
+    //call this function when player dies
+    public void handlePlayerDeath()
+    {
+        playerStatus = true;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        deathTimer = 3;
+        lives--;
+        NotifyLives();
+        NotifyPlayerDeath();
+    }
+
+    public bool isPlayerDead()
+    {
+        return playerStatus;
     }
 
     private void NotifyScale()
@@ -77,6 +118,14 @@ public class MovePlayerMarble : MonoBehaviour
         Agent.Instance.PlayerMarbleLives = lives;
     }
 
+    private void NotifyPlayerDeath()
+    {
+        if (playerStatus)
+            Agent.Instance.playerStatus = -1;
+        else
+            Agent.Instance.playerStatus = 1;
+    }
+
     private bool isGameStart()
     {
         if (Agent.Instance.GameStartTimer <= 0)
@@ -85,9 +134,4 @@ public class MovePlayerMarble : MonoBehaviour
             return false;
     }
 
-    public void Eaten()
-    {
-        lives--;
-        NotifyLives();
-    }
 }

@@ -10,18 +10,18 @@ public class MoveMarble : MonoBehaviour
     public float growthRate;
     public float maxMarbleSize;
     public Transform SpawnArea;
+    public bool canEatMarbles = false;
 
     // Start is called before the first frame update
     void Start()
     {
         Alive = true;
         // Color randomColor = ;
-        float scale = 1.3f * Random.value + 0.3f;
+        float scale = 1.5f * Random.value + 0.3f;
         // GetComponent<Renderer>().material.SetColor("_Color", Color.red);
         //ChangeColor(Agent.Instance.PlayerMarbleScale);
         GetComponent<Transform>().localScale *= scale;
         GetComponent<Rigidbody>().mass = scale;
-        scale *= 2;
 
     }
 
@@ -33,16 +33,18 @@ public class MoveMarble : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         direction = direction * -1;
+        if (!canEatMarbles) return;
         if (GameStart == false) return;
         if (other.gameObject.tag != "Marble" && other.gameObject.tag != "PlayerMarble")
             return;
 
         if (transform.localScale.x > other.transform.localScale.x)
         {
-            if (gameObject.transform.localScale.x < maxMarbleSize && other.gameObject.CompareTag("Marble"))
+            if (gameObject.transform.localScale.x < maxMarbleSize)
             {
                 Eat(other.gameObject);
-                Respawn(other.gameObject);
+                if (other.gameObject.CompareTag("Marble"))
+                    Respawn(other.gameObject);
             }
         }
     }
@@ -52,7 +54,8 @@ public class MoveMarble : MonoBehaviour
         if (marble.CompareTag("PlayerMarble"))
         {
             Debug.Log("Player Eaten");
-            marble.GetComponent<MovePlayerMarble>().Eaten();
+            marble.GetComponent<MovePlayerMarble>().handlePlayerDeath();
+            gameObject.GetComponentInParent<PSController>().changeMarbleEating(true);
             return;
         }
         if (marble.CompareTag("Marble"))
@@ -66,11 +69,12 @@ public class MoveMarble : MonoBehaviour
 
             transform.localScale = new Vector3(newScale, newScale, newScale);
             Debug.Log(marble.gameObject.name + " is Destroyed");
-            
+
             //Mix the mass
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * growthRate);
         }
     }
+
     private Vector3 generateSpawnLocation()
     {
         float x = Random.Range(-1f, 1f) * SpawnArea.localScale.x / 2 + SpawnArea.position.x;
@@ -94,6 +98,7 @@ public class MoveMarble : MonoBehaviour
         ChangeColor(scale);
     }
 
+
     // PM > EM, Green; PM < EM, Red; PM == EM, Blue
     public void ChangeColor(float scale)
     {
@@ -104,4 +109,5 @@ public class MoveMarble : MonoBehaviour
         color.b = scale.Equals(localScale) ? 1 : 0;
         GetComponent<Renderer>().material.SetColor("_Color", color);
     }
+
 }

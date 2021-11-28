@@ -12,19 +12,35 @@ public class MarbleCatcher : MonoBehaviour
     private Rigidbody rigidBody;
     private SphereCollider sphereCollider;
     private float maxPlayerSize;
-
+    private bool isPlayerDead;
+    private int playerStatus;
 
     private void Start()
     {
         maxPlayerSize = playerMarble.GetComponent<MovePlayerMarble>().maxPlayerSize;
+        isPlayerDead = playerMarble.GetComponent<MovePlayerMarble>().isPlayerDead();
+        playerStatus = getPlayerStatus();
+        isPlayerDead = false;
     }
     void Update()
     {
+        playerStatus = getPlayerStatus();
+        if (playerStatus == -1)
+        {
+            playerMarble.GetComponent<Rigidbody>().MovePosition(marbleHolder.transform.position);
+            playerMarble.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            playerMarble.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            playerMarble.transform.localScale = playerMarble.GetComponent<MovePlayerMarble>().initialSize;
+        }
+
+        if (isPlayerDead)
+            return;
+
         if (rigidBody)
         {
             rigidBody.MovePosition(Vector3.Lerp(rigidBody.position, marbleHolder.transform.position, Time.deltaTime*lerpSpeed));
 
-            if (Input.GetButtonUp("Fire1"))
+            if (Input.GetMouseButtonUp(0))
             {
                 if (sphereCollider)
                 {
@@ -66,5 +82,15 @@ public class MarbleCatcher : MonoBehaviour
                 sphereCollider.enabled = false;
             }
         }
+    }
+
+    //Observer event, get player state at all times
+    private int getPlayerStatus()
+    {
+        if (Agent.Instance.playerStatus == -1)
+            isPlayerDead = true;
+        else
+            isPlayerDead = false;
+        return Agent.Instance.playerStatus;
     }
 }

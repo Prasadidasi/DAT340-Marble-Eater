@@ -16,8 +16,11 @@ public class DisplayTimer : MonoBehaviour
         timer = Agent.Instance.GameStartTimer;
         if (timer > 0)
             enemiesEaten.text = "GAME STARTS IN " + timer.ToString();
-        else
+        else { 
             enemiesEaten.text = "";
+            Agent.Instance.GameStartTimer = 0;
+        }
+            
     }
 
 }
