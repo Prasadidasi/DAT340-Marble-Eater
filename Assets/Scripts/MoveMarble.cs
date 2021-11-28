@@ -52,6 +52,7 @@ public class MoveMarble : MonoBehaviour
         if (marble.CompareTag("PlayerMarble"))
         {
             Debug.Log("Player Eaten");
+            marble.GetComponent<MovePlayerMarble>().Eaten();
             return;
         }
         if (marble.CompareTag("Marble"))

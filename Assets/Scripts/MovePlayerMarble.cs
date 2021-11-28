@@ -32,7 +32,7 @@ public class MovePlayerMarble : MonoBehaviour
         {
             Eat(other.gameObject);
             other.gameObject.GetComponent<MoveMarble>().Respawn(other.gameObject);
-            NotifyScaleChange();
+            //NotifyScaleChange();
         }
     }
     private void Eat(GameObject marble)
@@ -84,5 +84,10 @@ public class MovePlayerMarble : MonoBehaviour
         else
             return false;
     }
-    
+
+    public void Eaten()
+    {
+        lives--;
+        NotifyLives();
+    }
 }
