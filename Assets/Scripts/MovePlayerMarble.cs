@@ -17,7 +17,8 @@ public class MovePlayerMarble : MonoBehaviour
     [SerializeField] private GameObject hitEffect;
     void Start()
     {
-        NotifyScaleChange();
+        Invoke("NotifyScaleChange", 0.0f);
+        //NotifyScaleChange();
         NotifyLives();
         deathTimer = 3;
         initialSize = transform.localScale;
