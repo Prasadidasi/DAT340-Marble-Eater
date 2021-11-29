@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -43,7 +41,7 @@ public class MovePlayerMarble : MonoBehaviour
         }
         else if (lives <= 0)
         {
-            Debug.Log("Game Over!"); //to be implemented later
+            Debug.Log("Game Over!"); //to be properly implemented later
         }
     }
 
@@ -93,11 +91,6 @@ public class MovePlayerMarble : MonoBehaviour
         lives--;
         NotifyLives();
         NotifyPlayerDeath();
-    }
-
-    public bool isPlayerDead()
-    {
-        return playerStatus;
     }
 
     private void NotifyScale()

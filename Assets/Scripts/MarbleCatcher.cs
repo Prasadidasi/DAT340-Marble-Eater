@@ -11,16 +11,14 @@ public class MarbleCatcher : MonoBehaviour
 
     private Rigidbody rigidBody;
     private SphereCollider sphereCollider;
-    private float maxPlayerSize;
     private bool isPlayerDead;
     private int playerStatus;
 
     private void Start()
     {
-        maxPlayerSize = playerMarble.GetComponent<MovePlayerMarble>().maxPlayerSize;
-        isPlayerDead = playerMarble.GetComponent<MovePlayerMarble>().isPlayerDead();
-        playerStatus = getPlayerStatus();
+        playerMarble.GetComponent<Rigidbody>().MovePosition(marbleHolder.transform.position);
         isPlayerDead = false;
+        playerStatus = getPlayerStatus();
     }
     void Update()
     {
