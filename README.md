@@ -27,5 +27,5 @@ If ball not held, holding left mouse button will summon marble towards the playe
 Release mouse to propel the marble forward.
 
 Same controls will be adapted for mobile devices.\
-Directional pad for player movement.\
+Directional touchpad for player movement.\
 Long-press for grabbing marble, release to shoot.
