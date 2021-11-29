@@ -127,3 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayerSize: 4
   growthRate: 0.01
+  initialSize: {x: 0, y: 0, z: 0}
+  lives: 5
+  hitEffect: {fileID: 8880604599504378628, guid: b43d8eeecc3a54a7aa166f38b1ab3aca, type: 3}

@@ -13,7 +13,7 @@ public class MovePlayerMarble : MonoBehaviour
     private bool playerStatus = false;
     [SerializeField] private int lives = 5;
     private float deathTimer;
-
+    [SerializeField] private GameObject hitEffect;
     void Start()
     {
         NotifyScaleChange();
@@ -63,6 +63,9 @@ public class MovePlayerMarble : MonoBehaviour
     }
     private void Eat(GameObject marble)
     {
+        var hit = Instantiate(hitEffect, marble.GetComponent<Transform>().position, Quaternion.identity);
+        Destroy(hit, 3.0f);
+        hitEffect.GetComponent<ParticleSystem>().Play();
         marble.gameObject.SetActive(false);
 
         //Mix the scales

@@ -11,7 +11,7 @@ public class MoveMarble : MonoBehaviour
     public float maxMarbleSize;
     public Transform SpawnArea;
     public bool canEatMarbles = false;
-
+    
     // Start is called before the first frame update
     void Start()
     {
