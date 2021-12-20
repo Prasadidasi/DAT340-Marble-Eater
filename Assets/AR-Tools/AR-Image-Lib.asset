@@ -16,12 +16,12 @@ MonoBehaviour:
   m_GuidHigh: 13962354401891986333
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5395446274659342583
-      m_GuidHigh: 18412002850043518880
+      m_GuidLow: 5508254319367943849
+      m_GuidHigh: 7404188981981864102
     m_SerializedTextureGuid:
       m_GuidLow: 4014057444423586137
       m_GuidHigh: 12400438619578436344
     m_Size: {x: 0, y: 0}
     m_SpecifySize: 0
-    m_Name: Student-Guide-Marker-ConvertImage
+    m_Name: Black-Star
     m_Texture: {fileID: 0}
