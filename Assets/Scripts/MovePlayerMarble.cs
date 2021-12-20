@@ -92,11 +92,7 @@ public class MovePlayerMarble : MonoBehaviour
         NotifyLives();
         NotifyPlayerDeath();
     }
-
-    private void NotifyScale()
-    {
-        Agent.Instance.PlayerMarbleScale = transform.localScale.x;
-    }
+    
     // Subject notifies the Agent when scale changes.
     // Agent forwards the notification to Particle System
     // then Particle System calls Observers' event function
@@ -104,7 +100,7 @@ public class MovePlayerMarble : MonoBehaviour
     {
         if (Agent.Instance.OnScaleChangeEvent != null)
         {
-            NotifyScale();
+            Agent.Instance.PlayerMarbleScale = transform.localScale.x;
             Agent.Instance.OnScaleChangeEvent(Agent.Instance.PlayerMarbleScale);
         }
     }
