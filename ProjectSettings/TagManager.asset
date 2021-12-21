@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerMarble
+  - Marble
+  - SpawnedObject
   layers:
   - Default
   - TransparentFX

@@ -4,5 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/MarbleEaterGame.unity
+    guid: c13049a2700613b4fa07a055e1b8f941
+  - enabled: 0
+    path: Assets/Scenes/MarbleAR.unity
+    guid: 040ba268f491f8344894f021282a7a96
+  - enabled: 1
+    path: Assets/Scenes/MarbleEaterAR.unity
+    guid: cfb43a1e1104e1f43959714607f696bd
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: dbffdd909b12607438e1884bd48fdd39, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3b82e110459a4eb49bde89bc00533132, type: 2}
