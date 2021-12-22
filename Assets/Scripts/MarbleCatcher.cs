@@ -38,7 +38,7 @@ public class MarbleCatcher : MonoBehaviour
         {
             rigidBody.MovePosition(Vector3.Lerp(rigidBody.position, marbleHolder.transform.position, Time.deltaTime*lerpSpeed));
 
-            if (Input.GetMouseButtonUp(0))
+            if (Input.touchCount <=0)
             {
                 if (sphereCollider)
                 {
@@ -46,11 +46,12 @@ public class MarbleCatcher : MonoBehaviour
                 }
                 rigidBody.isKinematic = false;
                 rigidBody.AddForce(FPSCamera.transform.forward * 40f, ForceMode.VelocityChange); //push away from normal 
+                Debug.Log("Throw Marble");
                 rigidBody = null;
             }
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
             if (rigidBody)
             {
@@ -66,8 +67,9 @@ public class MarbleCatcher : MonoBehaviour
 
     void Click()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
         RaycastHit hitMarble;
-        if (Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hitMarble, range))
+        if (Physics.Raycast(ray, out hitMarble))
         {
             rigidBody = playerMarble.GetComponent<Rigidbody>();
             sphereCollider = playerMarble.GetComponent<SphereCollider>();
