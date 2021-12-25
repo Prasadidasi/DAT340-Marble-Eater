@@ -64,3 +64,9 @@ crashlytics-build.properties
 
 
 [Uu]serSettings/EditorUserSettings.asset
+
+Packages/manifest.json
+
+Packages/packages-lock.json
+
+ProjectSettings/ProjectVersion.txt

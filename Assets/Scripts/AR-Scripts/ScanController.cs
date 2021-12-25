@@ -8,6 +8,11 @@ public class ScanController : MonoBehaviour
     public GameObject ScanUI;
     public bool buttonPressed = false;
     private ARImageTracker ARImageScript;
+
+    private void Awake()
+    {
+        ScanUI.SetActive(true);
+    }
     // Start is called before the first frame update
     void Start()
     {

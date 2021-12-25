@@ -12,6 +12,7 @@ public class PSController : MonoBehaviour
     [SerializeField] private float GrowthRate = 0.2f;
     [SerializeField] private float maxMarbleSize = 4;
     [SerializeField] private Transform SpawnArea;
+    [SerializeField] private float MarbleSizeModifier = 15;
 
     private bool _gameStart = false;
     private bool _playerDeadFlag = true;
@@ -22,16 +23,18 @@ public class PSController : MonoBehaviour
         AddObserver();
         _realStartupTime = startupTime + 3;
         _marbles = new Transform[marbleNum];
+        Agent.Instance.PlayerMarbleScale /= MarbleSizeModifier;
         Debug.Log("PlayerMarbleScale:" + Agent.Instance.PlayerMarbleScale);
-        for (int i = 0; i < marbleNum; i++)
-        {
+        marblePrefab.localScale = (transform.parent.localScale)/ MarbleSizeModifier;
+       // Debug.Log("Parent scale: " + marblePrefab.localScale);
+        for (int i = 0; i < marbleNum; i++){
             _marbles[i] = Instantiate(marblePrefab);
             _marbles[i].GetComponent<Transform>().parent = transform;
             _marbles[i].GetComponent<Transform>().position = _marbles[i].GetComponent<Transform>().parent.position;
             _marbles[i].GetComponent<MoveMarble>().direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             _marbles[i].GetComponent<MoveMarble>().direction *= speed;
             _marbles[i].GetComponent<MoveMarble>().growthRate = GrowthRate;
-            _marbles[i].GetComponent<MoveMarble>().maxMarbleSize = maxMarbleSize;
+            _marbles[i].GetComponent<MoveMarble>().maxMarbleSize = marblePrefab.localScale.x * maxMarbleSize;
             _marbles[i].GetComponent<MoveMarble>().ChangeColor(Agent.Instance.PlayerMarbleScale);
             _marbles[i].GetComponent<MoveMarble>().SpawnArea = SpawnArea;
         }

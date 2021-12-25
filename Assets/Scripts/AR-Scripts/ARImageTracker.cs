@@ -17,7 +17,7 @@ public class ARImageTracker : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(isWorldSpawned);
+       // Debug.Log(isWorldSpawned);
     }
 
     private void OnEnable() => _trackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
@@ -53,17 +53,17 @@ public class ARImageTracker : MonoBehaviour
     {
 
         scan = false;
-        Debug.Log("Image pos: " + addedImage.transform.localPosition);
+      //  Debug.Log("Image pos: " + addedImage.transform.localPosition);
         Transform spawnLocation = addedImage.transform;
        
         spawnLocation.localPosition += new Vector3(0, 0.2f, 0);
-        Debug.Log("Box pos: "+ spawnLocation.transform.localPosition);
+       // Debug.Log("Box pos: "+ spawnLocation.transform.localPosition);
         _instantiatedPrefab = Instantiate(prefab, spawnLocation);
         _instantiatedPrefab.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
-        _instantiatedParticleSystem = Instantiate(particleSystem, addedImage.transform);
-        _instantiatedParticleSystem.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
+        //_instantiatedParticleSystem = Instantiate(particleSystem, addedImage.transform);
+        //_instantiatedParticleSystem.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
         isWorldSpawned = true;
-        Debug.Log(isWorldSpawned);
+        //Debug.Log(isWorldSpawned);
     }
 
     private void HandleImageUpdating(ARTrackedImage updatedImage)
@@ -79,12 +79,12 @@ public class ARImageTracker : MonoBehaviour
     public void enableScan()
     {
         scan = true;
-        Debug.Log(scan);
+      //  Debug.Log(scan);
     }
 
     public void disableScan()
     {
         scan = false;
-        Debug.Log(scan);
+     //   Debug.Log(scan);
     }
 }
