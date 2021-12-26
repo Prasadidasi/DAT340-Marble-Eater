@@ -3,39 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ScanController : MonoBehaviour
-{
+{   public bool isScanning { set; get; }
+    [HideInInspector] public WorldSetup WorldSetup;
 
-    public GameObject ScanUI;
-    public bool buttonPressed = false;
-    private ARImageTracker ARImageScript;
 
     private void Awake()
     {
-        ScanUI.SetActive(true);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        ARImageScript = GetComponent<ARImageTracker>();
+        isScanning = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    public void Enable()
     {
-        if (ARImageScript.isWorldSpawned)
-        {
-            ScanUI.SetActive(false);
-        }
+        gameObject.SetActive(true);
     }
 
-    void EnableScan()
+    public void Disable()
     {
-        buttonPressed = true;
-        Debug.Log("Pressed");
+        isScanning = false;
+        gameObject.SetActive(false);
     }
 
-    void DisableScan()
+    public void EnableScan()
     {
-        buttonPressed = false;
+        isScanning = true;
+        WorldSetup.UpdateBoolChecks();
+    }
+
+    public void DisableScan()
+    {
+        isScanning = false;
+        WorldSetup.UpdateBoolChecks();
     }
 }

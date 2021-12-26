@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerMarble
+  - Marble
+  - ScaleRadioButton
+  - PositionRadioButton
+  - RotationRadioButton
   layers:
   - Default
   - TransparentFX

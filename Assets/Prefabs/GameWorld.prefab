@@ -808,6 +808,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Marble Particle System
       objectReference: {fileID: 0}
+    - target: {fileID: 8459886049080763020, guid: e2d6de3f88d82409fbf97ed6a9b7e272, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2d6de3f88d82409fbf97ed6a9b7e272, type: 3}
 --- !u!4 &7124629322793329288 stripped
