@@ -4,7 +4,7 @@ using UnityEngine;
 public class MarbleCatcher : MonoBehaviour
 {
     public float range = 200;
-    public float touchSpeedModifier = 0.05f;
+    public float touchSpeedModifier = 0.01f;
     [SerializeField] Camera FPSCamera;
     [SerializeField] Transform marbleHolder;
     public float lerpSpeed = 20f;
@@ -72,10 +72,10 @@ public class MarbleCatcher : MonoBehaviour
             touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
             {
-                playerMarble.transform.position = new Vector3(
-                    playerMarble.transform.position.x + touch.deltaPosition.x * touchSpeedModifier,
-                    playerMarble.transform.position.y + touch.deltaPosition.y * touchSpeedModifier,
-                    playerMarble.transform.position.z );
+                transform.position = new Vector3(
+                    transform.position.x + touch.deltaPosition.x * touchSpeedModifier,
+                    transform.position.y + touch.deltaPosition.y * touchSpeedModifier,
+                    transform.position.z);
             }
             if (rigidBody)
             {
@@ -122,10 +122,10 @@ public class MarbleCatcher : MonoBehaviour
     {
         if (isPlayerTouching)
         {
-            Vector3 viewPos = playerMarble.transform.position;
-            viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x, screenBounds.x * -1);
-            viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y, screenBounds.y * -1);
-            playerMarble.transform.position = viewPos;
+            Vector3 viewPos = transform.position;
+            viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x + objectWidth, screenBounds.x * -1 - objectWidth);
+            viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y + objectHeight, screenBounds.y * -1 - objectHeight);
+            transform.position = viewPos;
         }
     }
 }
