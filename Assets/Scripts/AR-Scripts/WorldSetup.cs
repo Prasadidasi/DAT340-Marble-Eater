@@ -6,11 +6,13 @@ public class WorldSetup : MonoBehaviour
 {
     [SerializeField] GameObject ScanUI;
     [SerializeField] GameObject WorldSettingUI;
+    [SerializeField] GameObject DeployUI;
     ScanController ScanController;
     [HideInInspector] public ARImageTracker ARImageTracker;
     [HideInInspector] public RadioButtonController RadioButtonController;
+    [HideInInspector] public DeployButtonController DeployButtonController;
 
-    public bool isScanning, isWorldSpawned;
+    public bool isScanning, isWorldSpawned, isDeployed;
     // Start is called before the first frame update
     void  Start()
     {
@@ -21,8 +23,11 @@ public class WorldSetup : MonoBehaviour
         ARImageTracker = GetComponent<ARImageTracker>();
         ARImageTracker.WorldSetup = this;
 
-        RadioButtonController = WorldSettingUI.GetComponent<RadioButtonController>();
-        RadioButtonController.WorldSetup = this;
+        DeployButtonController = DeployUI.GetComponent<DeployButtonController>();
+        DeployButtonController.WorldSetup = this;
+
+        ARImageTracker = GetComponent<ARImageTracker>();
+        ARImageTracker.WorldSetup = this;
         UpdateBoolChecks();
     }
 
@@ -33,6 +38,7 @@ public class WorldSetup : MonoBehaviour
         {
             ScanController.Disable();
             RadioButtonController.Enable();
+            DeployButtonController.Enable();
         }
         isScanning = ScanController.isScanning;
     }
