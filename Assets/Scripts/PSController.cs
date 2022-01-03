@@ -57,9 +57,9 @@ public class PSController : MonoBehaviour
         }
 
         int timer = _realStartupTime - (int)Time.realtimeSinceStartup;
-        if (_gameStart == false)
-            //Debug.Log("Game Starts In " + timer);
         NotifyTimer(timer);
+        if (_gameStart == true)
+            NotifyTimer(0);
     }
 
     public void changeMarbleEating(bool isPlayerDead)
