@@ -5,14 +5,18 @@ using UnityEngine;
 //Delegation Pattern for decoupling the particle system and the player marble.
 public class Agent : MonoBehaviour
 {
-    public delegate void ScaleChangeHandler(float scale);
+    public delegate void PlayerScaleChangeHandler(float scale);
 
-    public ScaleChangeHandler OnScaleChangeEvent;
+    public delegate void WorldYScaleChangeHandler(float scale);
+
+    public WorldYScaleChangeHandler OnWorldYScaleChangeEvent;
+    public PlayerScaleChangeHandler OnPlayerScaleChangeEvent;
     public float PlayerMarbleScale { get; set; }
     public int PlayerMarbleLives { get; set; }
     public int GameStartTimer { get; set; }
     public int KilledMarbles { get; set; }
     
+    public float WorldYScale { get; set; }
     //0 means player has started
     //-1 means player died
     //1 means player resurrected after dying
@@ -29,6 +33,7 @@ public class Agent : MonoBehaviour
         Instance.GameStartTimer = 0;
         Instance.KilledMarbles = 0;
         Instance.playerStatus = 0;
+        Instance.WorldYScale = 1;
     }
     
 }

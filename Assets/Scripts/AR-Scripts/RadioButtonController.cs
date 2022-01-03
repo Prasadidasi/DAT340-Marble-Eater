@@ -56,6 +56,7 @@ public class RadioButtonController : MonoBehaviour
                         break;
                     case "Y":
                         InstantiatedPrefab.transform.localScale += new Vector3(0, ScaleModifier * sign, 0);
+                        NotifyWorldYScale(InstantiatedPrefab.transform.localScale.y);
                         break;
                     case "Z":
                         InstantiatedPrefab.transform.localScale += new Vector3(0, 0, ScaleModifier * sign);
@@ -107,5 +108,11 @@ public class RadioButtonController : MonoBehaviour
     public void Disable()
     {
         gameObject.SetActive(false);
+    }
+
+    private void NotifyWorldYScale(float y)
+    {
+        Agent.Instance.WorldYScale = y;
+        Agent.Instance.OnWorldYScaleChangeEvent(Agent.Instance.WorldYScale);
     }
 }   
