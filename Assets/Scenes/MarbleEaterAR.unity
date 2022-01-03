@@ -656,10 +656,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 300
-  touchSpeedModifier: 0.05
+  touchSpeedModifier: 0.01
   FPSCamera: {fileID: 640848541}
   marbleHolder: {fileID: 1656542004}
-  lerpSpeed: 40
+  lerpSpeed: 15
   playerMarble: {fileID: 163649011}
 --- !u!114 &465058835
 MonoBehaviour:
@@ -1378,7 +1378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656542003}
   m_LocalRotation: {x: -0, y: 0.66319025, z: -0, w: 0.7484509}
-  m_LocalPosition: {x: -0.29, y: -0.028, z: 2.9}
+  m_LocalPosition: {x: -0.056, y: -0.028, z: 0.981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 640848545}
@@ -1846,7 +1846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1640029352530731306, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.95
+      value: 1.391
       objectReference: {fileID: 0}
     - target: {fileID: 1640029352530731306, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
       propertyPath: m_LocalPosition.y

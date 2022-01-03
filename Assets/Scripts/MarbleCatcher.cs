@@ -7,7 +7,7 @@ public class MarbleCatcher : MonoBehaviour
     public float touchSpeedModifier = 0.01f;
     [SerializeField] Camera FPSCamera;
     [SerializeField] Transform marbleHolder;
-    public float lerpSpeed = 20f;
+    public float lerpSpeed = 10f;
     [SerializeField] GameObject playerMarble;
 
     private Touch touch;
@@ -55,6 +55,7 @@ public class MarbleCatcher : MonoBehaviour
             rigidBody.MovePosition(Vector3.Lerp(rigidBody.position, marbleHolder.transform.position, Time.deltaTime * lerpSpeed));
             if (touch.phase == TouchPhase.Ended)
             {
+                isPlayerTouching = false;
                 if (sphereCollider)
                 {
                     sphereCollider.enabled = true;
@@ -70,13 +71,13 @@ public class MarbleCatcher : MonoBehaviour
         {
             isPlayerTouching = true;
             touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+            /*if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
             {
-                transform.position = new Vector3(
-                    transform.position.x + touch.deltaPosition.x * touchSpeedModifier,
-                    transform.position.y + touch.deltaPosition.y * touchSpeedModifier,
-                    transform.position.z);
-            }
+                playerMarble.transform.position = new Vector3(
+                    playerMarble.transform.position.x + touch.deltaPosition.x * touchSpeedModifier,
+                    playerMarble.transform.position.y + touch.deltaPosition.y * touchSpeedModifier,
+                    playerMarble.transform.position.z);
+            }*/
             if (rigidBody)
             {
                 rigidBody.isKinematic = false;
@@ -120,12 +121,13 @@ public class MarbleCatcher : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (isPlayerTouching)
+        /*if (isPlayerTouching)
         {
-            Vector3 viewPos = transform.position;
+            screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+            Vector3 viewPos = marbleHolder.transform.position;
             viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x + objectWidth, screenBounds.x * -1 - objectWidth);
             viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y + objectHeight, screenBounds.y * -1 - objectHeight);
-            transform.position = viewPos;
-        }
+            marbleHolder.transform.position = viewPos;
+        }*/
     }
 }
