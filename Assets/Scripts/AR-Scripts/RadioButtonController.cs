@@ -37,6 +37,7 @@ public class RadioButtonController : MonoBehaviour
                 switch (toggle.name)
                 {
                     case "X":
+                        Debug.LogError("X");
                         InstantiatedPrefab.transform.Translate(PositionModifier * sign, 0, 0, Space.World);
                         break;
                     case "Y":
@@ -101,6 +102,7 @@ public class RadioButtonController : MonoBehaviour
 
     public void Enable()
     {
+        Debug.LogError("enabling");
         gameObject.SetActive(true);
     }
 

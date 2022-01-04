@@ -62,7 +62,8 @@ public class ARImageTracker : MonoBehaviour
 
     private void HandleImageUpdating(ARTrackedImage updatedImage)
     {
-        HandleImageAdding(updatedImage);
+        //WorldSetup.UpdateBoolChecks(); 
+        //HandleImageAdding(updatedImage);
     }
 
     private void HandleImageRemoving(ARTrackedImage removedImage)

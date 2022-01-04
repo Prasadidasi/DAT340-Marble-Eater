@@ -28,6 +28,10 @@ public class WorldSetup : MonoBehaviour
 
         ARImageTracker = GetComponent<ARImageTracker>();
         ARImageTracker.WorldSetup = this;
+
+        RadioButtonController = WorldSettingUI.GetComponent<RadioButtonController>();
+        RadioButtonController.WorldSetup = this;
+        
         UpdateBoolChecks();
     }
 
