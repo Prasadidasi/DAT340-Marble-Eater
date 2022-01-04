@@ -92,6 +92,7 @@ public class MarbleCatcher : MonoBehaviour
 
     void Click()
     {
+        
         Ray ray = Camera.main.ScreenPointToRay(touch.position);
         RaycastHit hitMarble;
         if (Physics.Raycast(ray, out hitMarble))
