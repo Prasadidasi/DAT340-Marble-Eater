@@ -38,15 +38,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8459886049080763020}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7b7e119512b04a888a925a994508988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   marblePrefab: {fileID: 1640029352530731306, guid: 6d0d228243d4546209c13dbc5779ac02, type: 3}
-  marbleNum: 60
-  speed: 1
+  marbleNum: 13
+  speed: 0
   startupTime: 10
   GrowthRate: 0.2
   maxMarbleSize: 4
-  SpawnArea: {fileID: 0}
+  SpawnArea: {fileID: 160952591886515788, guid: acc3151fca421574a86d8d95245cf5a3, type: 3}
+  MarbleSizeModifier: 15

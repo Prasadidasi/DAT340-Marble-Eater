@@ -5,9 +5,9 @@ using UnityEngine.XR.ARSubsystems;
 public class ARImageTracker : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
-    //[SerializeField] private GameObject particleSystem;
+    [SerializeField] private GameObject particleSystem;
     [HideInInspector] public GameObject _instantiatedPrefab;
-    //private GameObject _instantiatedParticleSystem;
+    [HideInInspector]private GameObject _instantiatedParticleSystem;
     private ARTrackedImageManager _trackedImageManager;
 
     [HideInInspector] public WorldSetup WorldSetup;
@@ -30,6 +30,7 @@ public class ARImageTracker : MonoBehaviour
     {
         foreach (var addedImage in eventArgs.added)
         {
+            Debug.LogError(WorldSetup.isScanning);
             if (WorldSetup.isScanning == true)
                 HandleImageAdding(addedImage);
         }
@@ -49,12 +50,14 @@ public class ARImageTracker : MonoBehaviour
 
     private void HandleImageAdding(ARTrackedImage addedImage)
     {        
+        Debug.LogError("Handling Image Adding");
         Transform spawnLocation = addedImage.transform;       
         spawnLocation.localPosition += new Vector3(0, 0.2f, 0);       
         _instantiatedPrefab = Instantiate(prefab, spawnLocation);
         _instantiatedPrefab.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
-        //_instantiatedParticleSystem = Instantiate(particleSystem, addedImage.transform);
-        //_instantiatedParticleSystem.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
+        
+        _instantiatedParticleSystem = Instantiate(particleSystem, spawnLocation);
+        _instantiatedParticleSystem.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
 
         isWorldSpawned = true;
         WorldSetup.UpdateBoolChecks();       
@@ -62,7 +65,7 @@ public class ARImageTracker : MonoBehaviour
 
     private void HandleImageUpdating(ARTrackedImage updatedImage)
     {
-        //WorldSetup.UpdateBoolChecks(); 
+        WorldSetup.UpdateBoolChecks(); 
         //HandleImageAdding(updatedImage);
     }
 

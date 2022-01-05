@@ -7,7 +7,7 @@ public class PSController : MonoBehaviour
     [SerializeField] private Transform marblePrefab;
     [SerializeField, Range(0, 200)] private int marbleNum = 60;
     private Transform[] _marbles;
-    [SerializeField] private int speed = 1;
+    [SerializeField] private int speed = 0;
     [SerializeField] private int startupTime = 10;
     [SerializeField] private float GrowthRate = 0.2f;
     [SerializeField] private float maxMarbleSize = 4;
@@ -18,7 +18,7 @@ public class PSController : MonoBehaviour
     private bool _playerDeadFlag = true;
     private int _realStartupTime;
 
-    void OnEnable()
+    void Start()
     {
         AddObserver();
         _realStartupTime = startupTime + 3;
@@ -26,7 +26,7 @@ public class PSController : MonoBehaviour
         Agent.Instance.PlayerMarbleScale /= MarbleSizeModifier;
         Debug.Log("PlayerMarbleScale:" + Agent.Instance.PlayerMarbleScale);
         marblePrefab.localScale = new Vector3(transform.localScale.y, transform.localScale.y, transform.localScale.y)/MarbleSizeModifier;
-       // Debug.Log("Parent scale: " + marblePrefab.localScale);
+        Debug.Log("Parent scale: " + marblePrefab.localScale);
         for (int i = 0; i < marbleNum; i++){
             _marbles[i] = Instantiate(marblePrefab);
             _marbles[i].GetComponent<Transform>().parent = transform;
@@ -99,7 +99,8 @@ public class PSController : MonoBehaviour
     //Setup the Agent
     private void AddObserver()
     {
-        Agent.Instance.OnScaleChangeEvent += ForwardScaleChange;
+        Agent.Instance.OnPlayerScaleChangeEvent += ForwardScaleChange;
+        Agent.Instance.OnWorldScaleChangeEvent += OnWorldScaleChange;
     }
 
     // Call each marble's observer event function
@@ -117,5 +118,16 @@ public class PSController : MonoBehaviour
     private void NotifyTimer(int timer)
     {
         Agent.Instance.GameStartTimer = timer;
+    }
+    private void OnWorldScaleChange(float scale)
+    {
+        Debug.LogError(scale);
+        foreach (var marble in _marbles)
+        {
+            if (marble.gameObject.activeInHierarchy)
+            {
+                marble.transform.localScale = new Vector3(scale, scale, scale) / MarbleSizeModifier;
+            }
+        }
     }
 }

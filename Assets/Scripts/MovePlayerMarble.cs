@@ -98,10 +98,10 @@ public class MovePlayerMarble : MonoBehaviour
     // then Particle System calls Observers' event function
     private void NotifyScaleChange()
     {
-        if (Agent.Instance.OnScaleChangeEvent != null)
+        if (Agent.Instance.OnPlayerScaleChangeEvent != null)
         {
             Agent.Instance.PlayerMarbleScale = transform.localScale.x;
-            Agent.Instance.OnScaleChangeEvent(Agent.Instance.PlayerMarbleScale);
+            Agent.Instance.OnPlayerScaleChangeEvent(Agent.Instance.PlayerMarbleScale);
         }
     }
 
