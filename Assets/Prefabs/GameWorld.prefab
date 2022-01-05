@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 160952591886515788}
   - component: {fileID: 9200619191791215594}
+  - component: {fileID: 6338598366298559886}
   m_Layer: 3
   m_Name: GameWorld
   m_TagString: Untagged
@@ -45,6 +46,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c600a554b2454e05a8562907e4909b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6338598366298559886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160952591886515795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b7e119512b04a888a925a994508988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marblePrefab: {fileID: 1640029352530731306, guid: 6d0d228243d4546209c13dbc5779ac02, type: 3}
+  marbleNum: 60
+  speed: 1
+  startupTime: 10
+  GrowthRate: 0.2
+  maxMarbleSize: 4
+  SpawnArea: {fileID: 0}
+  MarbleSizeModifier: 15
 --- !u!1 &160952591937625728
 GameObject:
   m_ObjectHideFlags: 0

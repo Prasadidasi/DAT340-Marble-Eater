@@ -25,8 +25,9 @@ public class PSController : MonoBehaviour
         _marbles = new Transform[marbleNum];
         Agent.Instance.PlayerMarbleScale /= MarbleSizeModifier;
         Debug.Log("PlayerMarbleScale:" + Agent.Instance.PlayerMarbleScale);
-        marblePrefab.localScale = new Vector3(transform.localScale.y, transform.localScale.y, transform.localScale.y)/MarbleSizeModifier;
-        Debug.Log("Parent scale: " + marblePrefab.localScale);
+        marblePrefab.localScale = new Vector3(transform.localScale.y, transform.localScale.y, transform.localScale.y) /
+                                  MarbleSizeModifier;
+       // Debug.Log("Parent scale: " + marblePrefab.localScale);
         for (int i = 0; i < marbleNum; i++){
             _marbles[i] = Instantiate(marblePrefab);
             _marbles[i].GetComponent<Transform>().parent = transform;
@@ -100,7 +101,7 @@ public class PSController : MonoBehaviour
     private void AddObserver()
     {
         Agent.Instance.OnPlayerScaleChangeEvent += ForwardScaleChange;
-        Agent.Instance.OnWorldScaleChangeEvent += OnWorldScaleChange;
+        Agent.Instance.OnWorldYScaleChangeEvent += OnWorldYScaleChange;
     }
 
     // Call each marble's observer event function
@@ -115,6 +116,16 @@ public class PSController : MonoBehaviour
         }
     }
 
+    private void OnWorldYScaleChange(float scale)
+    {
+        foreach (var marble in _marbles)
+        {
+            if (marble.gameObject.activeInHierarchy)
+            {
+                marble.transform.localScale = new Vector3(scale, scale, scale);
+            }
+        }
+    }
     private void NotifyTimer(int timer)
     {
         Agent.Instance.GameStartTimer = timer;

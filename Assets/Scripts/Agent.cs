@@ -17,6 +17,7 @@ public class Agent : MonoBehaviour
     public int GameStartTimer { get; set; }
     public int KilledMarbles { get; set; }
     
+    public float WorldYScale { get; set; }
     //0 means player has started
     //-1 means player died
     //1 means player resurrected after dying

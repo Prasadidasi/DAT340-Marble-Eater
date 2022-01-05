@@ -97,7 +97,7 @@ public class MoveMarble : MonoBehaviour
     {
         ChangeColor(scale);
     }
-
+    
 
     // PM > EM, Green; PM < EM, Red; PM == EM, Blue
     public void ChangeColor(float scale)
