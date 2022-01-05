@@ -61,7 +61,7 @@ public class ARImageTracker : MonoBehaviour
         isWorldSpawned = true;
         WorldSetup.UpdateBoolChecks();       
     }
-
+    
     private void HandleImageUpdating(ARTrackedImage updatedImage)
     {
         WorldSetup.UpdateBoolChecks(); 

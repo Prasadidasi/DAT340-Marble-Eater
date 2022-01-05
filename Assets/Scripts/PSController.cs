@@ -100,7 +100,7 @@ public class PSController : MonoBehaviour
     private void AddObserver()
     {
         Agent.Instance.OnPlayerScaleChangeEvent += ForwardScaleChange;
-        Agent.Instance.OnWorldYScaleChangeEvent += OnWorldYScaleChange;
+        Agent.Instance.OnWorldScaleChangeEvent += OnWorldYScaleChange;
     }
 
     // Call each marble's observer event function
