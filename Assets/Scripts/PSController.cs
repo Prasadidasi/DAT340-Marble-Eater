@@ -24,7 +24,6 @@ public class PSController : MonoBehaviour
         _realStartupTime = startupTime + 3;
         _marbles = new Transform[marbleNum];
         Agent.Instance.PlayerMarbleScale /= MarbleSizeModifier;
-        Debug.Log("PlayerMarbleScale:" + Agent.Instance.PlayerMarbleScale);
         marblePrefab.localScale = new Vector3(transform.localScale.y, transform.localScale.y, transform.localScale.y) /
                                   MarbleSizeModifier;
        // Debug.Log("Parent scale: " + marblePrefab.localScale);
@@ -47,7 +46,7 @@ public class PSController : MonoBehaviour
         { 
             changeMarbleEating(false);
             _playerDeadFlag = false;
-            Debug.Log("Marbles Eating each other again");
+            //Debug.Log("Marbles Eating each other again");
         }
         if (_gameStart == false && Time.realtimeSinceStartup > _realStartupTime)
         {
@@ -57,13 +56,13 @@ public class PSController : MonoBehaviour
                 child.gameObject.GetComponent<MoveMarble>().GameStart = _gameStart;
                 child.gameObject.GetComponent<MoveMarble>().canEatMarbles = true;
             }
-            Debug.Log("Game Started!");
+            //Debug.Log("Game Started!");
         }
 
         int timer = _realStartupTime - (int)Time.realtimeSinceStartup;
-        if (_gameStart == false)
-            Debug.Log("Game Starts In " + timer);
         NotifyTimer(timer);
+        if (_gameStart == true)
+            NotifyTimer(0);
     }
 
     public void changeMarbleEating(bool isPlayerDead)

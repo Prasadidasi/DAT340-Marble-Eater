@@ -68,7 +68,7 @@ public class MoveMarble : MonoBehaviour
                 newScale = maxMarbleSize;
 
             transform.localScale = new Vector3(newScale, newScale, newScale);
-            Debug.Log(marble.gameObject.name + " is Destroyed");
+            //Debug.Log(marble.gameObject.name + " is Destroyed");
 
             //Mix the mass
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + marble.gameObject.GetComponent<Rigidbody>().mass * growthRate);
