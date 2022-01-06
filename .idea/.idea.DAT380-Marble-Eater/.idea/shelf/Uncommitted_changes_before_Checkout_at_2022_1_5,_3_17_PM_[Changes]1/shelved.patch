@@ -1,0 +1,15 @@
+Index: Assets/StreamingAssets/HiddenARCore.meta
+===================================================================
+diff --git a/Assets/StreamingAssets/HiddenARCore.meta b/Assets/StreamingAssets/HiddenARCore.meta
+deleted file mode 100644
+--- a/Assets/StreamingAssets/HiddenARCore.meta	
++++ /dev/null	
+@@ -1,8 +0,0 @@
+-fileFormatVersion: 2
+-guid: 042dfb136bc3c304ea0cd5932ce88d04
+-folderAsset: yes
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 

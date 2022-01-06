@@ -55,8 +55,8 @@ public class ARImageTracker : MonoBehaviour
         spawnLocation.localPosition += new Vector3(0, 0.2f, 0);       
         _instantiatedPrefab = Instantiate(prefab, spawnLocation);
         _instantiatedPrefab.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
-        //_instantiatedParticleSystem = Instantiate(particleSystem, addedImage.transform);
-        //_instantiatedParticleSystem.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
+        _instantiatedParticleSystem = Instantiate(particleSystem, addedImage.transform);
+        _instantiatedParticleSystem.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
         
         isWorldSpawned = true;
         WorldSetup.UpdateBoolChecks();       

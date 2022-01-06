@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9080b57b-ab8f-4193-aac7-a275c564b842" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UIMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameWorld.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameWorld.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AR-Scripts/ARImageTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AR-Scripts/ARImageTracker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PSController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PSController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/XRGeneralSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/XRGeneralSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/XRGeneralSettings.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/XRGeneralSettings.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="ARMarbleEaterControls" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="AR_MarbleScaling" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/XR/Loaders/AR Core Loader.asset.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/Automation/common.sh.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/DeployButtonController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/ARImageTracker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/Automation/common.sh.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/Automation/disable_lunar_console.sh.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Prefabs/Marble Particle System.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/ARImageTracker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/AndroidPlugin.cs.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Prefabs/GameWorld.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/ARImageTracker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/ARImageTracker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/UI/ActionsAndVariablesWindow.cs.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/Automation/disable_lunar_console.sh.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/AndroidPlugin.cs.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/Automation/disable_lunar_console.sh.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/MoveMarble.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PSController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/WorldSetup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/RadioButtonController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MarbleController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/MoveMarble.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Agent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="21Exl2UkgnB9OWe0mEAm8OS5hDc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9080b57b-ab8f-4193-aac7-a275c564b842" name="Changes" comment="" />
+      <created>1637520215659</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637520215659</updated>
+      <workItem from="1637520225144" duration="427000" />
+      <workItem from="1637520678486" duration="64518000" />
+      <workItem from="1638174979167" duration="3911000" />
+      <workItem from="1638188117807" duration="4500000" />
+      <workItem from="1640016080681" duration="531000" />
+      <workItem from="1640599985505" duration="4081000" />
+      <workItem from="1640640722617" duration="447000" />
+      <workItem from="1640641230147" duration="4806000" />
+      <workItem from="1641204393336" duration="37435000" />
+    </task>
+    <task id="LOCAL-00001" summary="Particle System merged Samir's code">
+      <created>1637575420614</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1637575420614</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Particle System controller">
+      <created>1637575672163</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1637575672163</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Particle System Test Scene">
+      <created>1637575767009</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1637575767009</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Particle System Prefab">
+      <created>1637575834410</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1637575834410</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added Particle System Test Scene">
+      <created>1637579154131</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1637579154131</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Particle System Test Scene">
+      <created>1637579390522</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1637579390522</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Agent object for decoupling Player Marble and Particle System">
+      <created>1637755224488</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1637755224488</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Observer pattern for monitoring the size changes of player marble">
+      <created>1637785852278</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1637785852278</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Color change also works among enemy marbles">
+      <created>1637829709850</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1637829709850</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Merged MarbleSpawn branch">
+      <created>1637831232261</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1637831232262</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Merged Main branch">
+      <created>1637832903848</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1637832903848</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Put all the stuffs to particle system test scene.">
+      <created>1637834763292</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1637834763293</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Test Scene blended to BoundaryTest Scene">
+      <created>1637866005829</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1637866005829</updated>
+    </task>
+    <task id="LOCAL-00014" summary="player marble lives">
+      <created>1638012229757</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1638012229758</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fixed color change error">
+      <created>1638014580958</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1638014580958</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Deleted temporary growth limit">
+      <created>1638042131164</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1638042131164</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update lives by enemy marble">
+      <created>1638110891914</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1638110891915</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added simple Hit Effect">
+      <created>1638176038433</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1638176038433</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added Hit Effect to Player Marble Prefab">
+      <created>1638179293334</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1638179293334</updated>
+    </task>
+    <task id="LOCAL-00020" summary="HitEffect Prefab">
+      <created>1638180428673</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1638180428673</updated>
+    </task>
+    <task id="LOCAL-00021" summary="AR Image Tracker">
+      <created>1640017674004</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1640017674004</updated>
+    </task>
+    <task id="LOCAL-00022" summary="World Y Scale Change Event Handler">
+      <created>1641223732649</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1641223732649</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Damaged Code, do not work on this branch">
+      <created>1641244319780</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1641244319780</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Fixed Radio Button Initialization">
+      <created>1641314304720</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1641314304720</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Scaling with game world Y axis">
+      <created>1641373859523</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1641373859523</updated>
+    </task>
+    <task id="LOCAL-00026">
+      <created>1641393570595</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1641393570598</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Particle System merged Samir's code" />
+    <MESSAGE value="Particle System controller" />
+    <MESSAGE value="Particle System Prefab" />
+    <MESSAGE value="Added Particle System Test Scene" />
+    <MESSAGE value="Particle System Test Scene" />
+    <MESSAGE value="Agent object for decoupling Player Marble and Particle System" />
+    <MESSAGE value="Observer pattern for monitoring the size changes of player marble" />
+    <MESSAGE value="Color change also works among enemy marbles" />
+    <MESSAGE value="Merged MarbleSpawn branch" />
+    <MESSAGE value="Merged Main branch" />
+    <MESSAGE value="Put all the stuffs to particle system test scene." />
+    <MESSAGE value="Test Scene blended to BoundaryTest Scene" />
+    <MESSAGE value="player marble lives" />
+    <MESSAGE value="Fixed color change error" />
+    <MESSAGE value="Deleted temporary growth limit" />
+    <MESSAGE value="Update lives by enemy marble" />
+    <MESSAGE value="Added simple Hit Effect" />
+    <MESSAGE value="Added Hit Effect to Player Marble Prefab" />
+    <MESSAGE value="HitEffect Prefab" />
+    <MESSAGE value="AR Image Tracker" />
+    <MESSAGE value="World Y Scale Change Event Handler" />
+    <MESSAGE value="Damaged Code, do not work on this branch" />
+    <MESSAGE value="Fixed Radio Button Initialization" />
+    <MESSAGE value="Scaling with game world Y axis" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
