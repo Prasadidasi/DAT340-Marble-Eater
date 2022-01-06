@@ -13,6 +13,7 @@ public class RadioButtonController : MonoBehaviour
     [SerializeField] private float PositionModifier = 0.01f;
     [SerializeField] private int RotationModifier = 10;
     private GameObject InstantiatedPrefab;
+   
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -37,7 +38,6 @@ public class RadioButtonController : MonoBehaviour
                 switch (toggle.name)
                 {
                     case "X":
-                        Debug.LogError("X");
                         InstantiatedPrefab.transform.Translate(PositionModifier * sign, 0, 0, Space.World);
                         break;
                     case "Y":
@@ -67,7 +67,7 @@ public class RadioButtonController : MonoBehaviour
                 }
                 break;
             case "RotationRadioButton":
-                InstantiatedPrefab.transform.Rotate(new Vector3(0, RotationModifier, 0) * Time.deltaTime);
+                InstantiatedPrefab.transform.Rotate(new Vector3(0, RotationModifier*sign, 0) * Time.deltaTime);
                 Debug.Log(InstantiatedPrefab.transform.rotation);
                 break;
         }
@@ -79,7 +79,6 @@ public class RadioButtonController : MonoBehaviour
         {
             Toggle toggle = ToggleGroup.ActiveToggles().FirstOrDefault();
             ToggleEvent(toggle, 1);
-            //Debug.Log("Increment " + toggle.name);
         }
     }
 
@@ -89,7 +88,6 @@ public class RadioButtonController : MonoBehaviour
         {
             Toggle toggle = ToggleGroup.ActiveToggles().FirstOrDefault();
             ToggleEvent(toggle, -1);
-            //Debug.Log("Decrement " + toggle.name);
         }
     }
 
@@ -105,12 +103,13 @@ public class RadioButtonController : MonoBehaviour
 
     public void Enable()
     {
-        Debug.LogError("enabling");
+       // Debug.Log("enabling");
         gameObject.SetActive(true);
     }
 
     public void Disable()
     {
+        //Deploy();
         gameObject.SetActive(false);
     }
     

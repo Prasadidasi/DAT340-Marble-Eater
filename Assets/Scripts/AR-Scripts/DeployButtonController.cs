@@ -6,6 +6,8 @@ public class DeployButtonController : MonoBehaviour
 {
     [HideInInspector] public WorldSetup WorldSetup;
     [HideInInspector] public bool deployPressed = false;
+    [HideInInspector] public bool isDeployed;
+   
 
     
     // Start is called before the first frame update
@@ -17,13 +19,23 @@ public class DeployButtonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (deployPressed)
+        {
+           
+            isDeployed = true;
+            WorldSetup.UpdateBoolChecks();
+            deployPressed = false;
+        }
+        else
+        {
+            isDeployed = false;
+        }
     }
 
     public void toggleDeploy() //For debugging
     {
         deployPressed = !deployPressed;
-        Debug.Log("Deploy Pressed: " + deployPressed);
+       
     }
 
     public void Enable()

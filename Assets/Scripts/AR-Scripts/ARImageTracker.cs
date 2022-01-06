@@ -5,9 +5,9 @@ using UnityEngine.XR.ARSubsystems;
 public class ARImageTracker : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
-    [SerializeField] private GameObject particleSystem;
+   // [SerializeField] private GameObject particleSystem;
     [HideInInspector] public GameObject _instantiatedPrefab;
-    [HideInInspector]private GameObject _instantiatedParticleSystem;
+    //[HideInInspector]private GameObject _instantiatedParticleSystem;
     private ARTrackedImageManager _trackedImageManager;
 
     [HideInInspector] public WorldSetup WorldSetup;
@@ -30,7 +30,8 @@ public class ARImageTracker : MonoBehaviour
     {
         foreach (var addedImage in eventArgs.added)
         {
-            Debug.LogError(WorldSetup.isScanning);
+            Debug.Log(WorldSetup.isScanning);
+            Debug.Log("image added");
             if (WorldSetup.isScanning == true)
                 HandleImageAdding(addedImage);
         }
@@ -38,8 +39,14 @@ public class ARImageTracker : MonoBehaviour
         foreach (var updatedImage in eventArgs.updated)
         {
             if (WorldSetup.isScanning == true)
+            {
                 HandleImageUpdating(updatedImage);
-            Debug.Log("Update");
+                
+                if(WorldSetup.isWorldSpawned == false)
+                {
+                    HandleImageAdding(updatedImage);
+                }
+            }
         }
 
         foreach (var removedImage in eventArgs.removed)
@@ -50,21 +57,23 @@ public class ARImageTracker : MonoBehaviour
 
     private void HandleImageAdding(ARTrackedImage addedImage)
     {        
-        Debug.LogError("Handling Image Adding");
+        Debug.Log("Handling Image Adding");
         Transform spawnLocation = addedImage.transform;       
         spawnLocation.localPosition += new Vector3(0, 0.2f, 0);       
         _instantiatedPrefab = Instantiate(prefab, spawnLocation);
         _instantiatedPrefab.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
-        _instantiatedParticleSystem = Instantiate(particleSystem, addedImage.transform);
-        _instantiatedParticleSystem.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
+       // _instantiatedParticleSystem = Instantiate(particleSystem, addedImage.transform);
+        //_instantiatedParticleSystem.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
         
         isWorldSpawned = true;
-        WorldSetup.UpdateBoolChecks();       
+        WorldSetup.UpdateBoolChecks();
+        Debug.Log("Image Added");
     }
     
     private void HandleImageUpdating(ARTrackedImage updatedImage)
     {
-        WorldSetup.UpdateBoolChecks(); 
+        WorldSetup.UpdateBoolChecks();
+        Debug.Log("Update");
         //HandleImageAdding(updatedImage);
     }
 
