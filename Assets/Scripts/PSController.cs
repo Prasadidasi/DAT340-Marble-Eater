@@ -18,7 +18,7 @@ public class PSController : MonoBehaviour
     private bool _playerDeadFlag = true;
     private int _realStartupTime;
 
-    void Start()
+    void OnEnable()
     {
         AddObserver();
         _realStartupTime = startupTime + 3;
@@ -27,9 +27,10 @@ public class PSController : MonoBehaviour
         float y = Agent.Instance.WorldYScale / MarbleSizeModifier;
         marblePrefab.localScale = new Vector3(y, y, y);
        // Debug.Log("Parent scale: " + marblePrefab.localScale);
+       Debug.LogError("PS init");
         for (int i = 0; i < marbleNum; i++){
             _marbles[i] = Instantiate(marblePrefab);
-            _marbles[i].GetComponent<Transform>().parent = transform;
+            _marbles[i].GetComponent<Transform>().parent = transform.parent;
             _marbles[i].GetComponent<Transform>().position = _marbles[i].GetComponent<Transform>().parent.position;
             _marbles[i].GetComponent<MoveMarble>().direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             _marbles[i].GetComponent<MoveMarble>().direction *= speed;

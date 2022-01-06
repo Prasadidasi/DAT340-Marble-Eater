@@ -59,15 +59,16 @@ public class ARImageTracker : MonoBehaviour
     {        
         Debug.Log("Handling Image Adding");
         Transform spawnLocation = addedImage.transform;       
-        spawnLocation.localPosition += new Vector3(0, 0.2f, 0);       
+        spawnLocation.localPosition += new Vector3(0, 0.2f, 0);
         _instantiatedPrefab = Instantiate(prefab, spawnLocation);
         _instantiatedPrefab.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
+        
        // _instantiatedParticleSystem = Instantiate(particleSystem, addedImage.transform);
         //_instantiatedParticleSystem.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
         
         isWorldSpawned = true;
         WorldSetup.UpdateBoolChecks();
-        Debug.Log("Image Added");
+        //Debug.Log("Image Added");
     }
     
     private void HandleImageUpdating(ARTrackedImage updatedImage)
@@ -81,4 +82,5 @@ public class ARImageTracker : MonoBehaviour
     {
         
     }
+    
 }
