@@ -15,7 +15,7 @@ public class MovePlayerMarble : MonoBehaviour
     [SerializeField] private GameObject hitEffect;
     void Start()
     {
-        transform.SetParent(transform.parent.parent);
+        //transform.SetParent(transform.parent.parent);
         Invoke("NotifyScaleChange", 0.0f);
         NotifyLives();
         deathTimer = 3;

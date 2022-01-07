@@ -7,9 +7,9 @@ public class MarbleCatcher : MonoBehaviour
     public float touchSpeedModifier = 0.01f;
     [SerializeField] Camera FPSCamera;
     [SerializeField] Transform marbleHolder;
+    [SerializeField] private GameObject playerMarblePrefab;
     public float lerpSpeed = 10f;
-    [SerializeField] GameObject playerMarble;
-
+    private GameObject playerMarble;
     private Touch touch;
     private Rigidbody rigidBody;
     private SphereCollider sphereCollider;
@@ -20,9 +20,12 @@ public class MarbleCatcher : MonoBehaviour
     private float objectHeight;
     private float objectWidth;
     private bool isPlayerTouching;
-
-    private void Start()
+    
+    private void OnEnable()
     {
+        Debug.Log("Catcher Enabled");
+        playerMarble = Instantiate(playerMarblePrefab);
+        playerMarble.transform.SetParent(transform.parent);
         playerMarble.GetComponent<Rigidbody>().MovePosition(marbleHolder.transform.position);
         isPlayerDead = false;
         isPlayerTouching = false;

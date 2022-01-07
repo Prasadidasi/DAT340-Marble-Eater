@@ -12,7 +12,7 @@ public class WorldSetup : MonoBehaviour
     [HideInInspector] public ARImageTracker ARImageTracker;
     [HideInInspector] public RadioButtonController RadioButtonController;
     [HideInInspector] public DeployButtonController DeployButtonController;
-
+    [HideInInspector] public MarbleCatcher MarbleCatcher;
     public bool isScanning, isWorldSpawned, isDeployed;
     // Start is called before the first frame update
     void  Start()
@@ -32,6 +32,8 @@ public class WorldSetup : MonoBehaviour
 
         RadioButtonController = WorldSettingUI.GetComponent<RadioButtonController>();
         RadioButtonController.WorldSetup = this;
+
+        MarbleCatcher = GetComponent<MarbleCatcher>();
         
         UpdateBoolChecks();
     }

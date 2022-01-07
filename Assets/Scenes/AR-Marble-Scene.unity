@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -564,7 +564,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1721451694}
   m_Father: {fileID: 1427387638}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2339,6 +2340,7 @@ GameObject:
   - component: {fileID: 1427387642}
   - component: {fileID: 1427387640}
   - component: {fileID: 1427387641}
+  - component: {fileID: 1427387643}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -2474,12 +2476,31 @@ MonoBehaviour:
   ScanUI: {fileID: 1941381341}
   WorldSettingUI: {fileID: 1401791682}
   DeployUI: {fileID: 1822654161}
+  debugMode: 0
   ARImageTracker: {fileID: 0}
   RadioButtonController: {fileID: 0}
   DeployButtonController: {fileID: 0}
   isScanning: 0
   isWorldSpawned: 0
   isDeployed: 0
+--- !u!114 &1427387643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427387636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70f7908f8905cb4d90dda208f30d5e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 200
+  touchSpeedModifier: 0.01
+  FPSCamera: {fileID: 445953972}
+  marbleHolder: {fileID: 1721451694}
+  lerpSpeed: 10
+  playerMarble: {fileID: 839179604707747453, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
 --- !u!1 &1446322110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,6 +2794,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665164088}
   m_CullTransparentMesh: 1
+--- !u!1 &1721451693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721451694}
+  m_Layer: 0
+  m_Name: MarbleCatcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1721451694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721451693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445953976}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728616989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3233,6 +3284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorldSetup: {fileID: 0}
   deployPressed: 0
+  isDeployed: 0
 --- !u!1 &1850099852
 GameObject:
   m_ObjectHideFlags: 0

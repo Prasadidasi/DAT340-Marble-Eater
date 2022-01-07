@@ -117,7 +117,8 @@ public class RadioButtonController : MonoBehaviour
     {
         NotifyWorldYScale(localScale.y);
         InstantiatedPrefab.GetComponent<PSController>().enabled = true;
-        InstantiatedPrefab.transform.Find("PlayerMarble").gameObject.SetActive(true);
+       // InstantiatedPrefab.transform.Find("PlayerMarble").gameObject.SetActive(true);
+        WorldSetup.MarbleCatcher.enabled = true;
     }
     private void NotifyWorldYScale(float y)
     {
