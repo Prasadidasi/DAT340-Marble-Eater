@@ -65,7 +65,7 @@ public class PSController : MonoBehaviour
             //Debug.Log("Game Started!");
         }
 
-        int timer = startupTime - (int)Time.realtimeSinceStartup;
+        int timer = startupTime - (int)(Time.realtimeSinceStartup - _PSControllerInitTime);
         NotifyTimer(timer);
         if (_gameStart == true)
         {
@@ -126,6 +126,7 @@ public class PSController : MonoBehaviour
     
     private void NotifyTimer(int timer)
     {
+        Debug.Log("Timer is: " + timer);
         Agent.Instance.GameStartTimer = timer;
     }
     private void OnWorldScaleChange(float scale)
