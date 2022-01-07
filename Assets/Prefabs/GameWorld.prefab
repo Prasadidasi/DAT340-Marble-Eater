@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 160952591886515795}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2931834292761712654}
   - {fileID: 7124629322793329288}
@@ -65,7 +65,7 @@ MonoBehaviour:
   GrowthRate: 0.2
   maxMarbleSize: 4
   SpawnArea: {fileID: 160952591886515788}
-  MarbleSizeModifier: 2
+  MarbleSizeModifier: 15
 --- !u!1 &160952591937625728
 GameObject:
   m_ObjectHideFlags: 0
