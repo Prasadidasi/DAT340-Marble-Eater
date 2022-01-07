@@ -17,27 +17,29 @@ public class PSController : MonoBehaviour
     private bool _gameStart = false;
     private bool _playerDeadFlag = true;
     private int _realStartupTime;
+    private float _PSControllerInitTime;
 
     void OnEnable()
     {
         AddObserver();
+        _PSControllerInitTime = Time.realtimeSinceStartup;
         _realStartupTime = startupTime + 3;
         _marbles = new Transform[marbleNum];
         Agent.Instance.PlayerMarbleScale /= MarbleSizeModifier;
         float y = Agent.Instance.WorldYScale / MarbleSizeModifier;
         marblePrefab.localScale = new Vector3(y, y, y);
        // Debug.Log("Parent scale: " + marblePrefab.localScale);
-       Debug.LogError("PS init");
+       Debug.Log("PS init");
         for (int i = 0; i < marbleNum; i++){
             _marbles[i] = Instantiate(marblePrefab);
             _marbles[i].GetComponent<Transform>().parent = transform.parent;
             _marbles[i].GetComponent<Transform>().position = _marbles[i].GetComponent<Transform>().parent.position;
-            _marbles[i].GetComponent<MoveMarble>().direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-            _marbles[i].GetComponent<MoveMarble>().direction *= speed;
-            _marbles[i].GetComponent<MoveMarble>().growthRate = GrowthRate;
-            _marbles[i].GetComponent<MoveMarble>().maxMarbleSize = marblePrefab.localScale.y * maxMarbleSize;
-            _marbles[i].GetComponent<MoveMarble>().ChangeColor(Agent.Instance.PlayerMarbleScale);
-            _marbles[i].GetComponent<MoveMarble>().SpawnArea = SpawnArea;
+            _marbles[i].GetComponent<MarbleController>().direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            _marbles[i].GetComponent<MarbleController>().direction *= speed;
+            _marbles[i].GetComponent<MarbleController>().growthRate = GrowthRate;
+            _marbles[i].GetComponent<MarbleController>().maxMarbleSize = marblePrefab.localScale.y * maxMarbleSize;
+            _marbles[i].GetComponent<MarbleController>().ChangeColor(Agent.Instance.PlayerMarbleScale);
+            _marbles[i].GetComponent<MarbleController>().SpawnArea = SpawnArea;
         }
     }
     // Update is called once per frame
@@ -49,13 +51,13 @@ public class PSController : MonoBehaviour
             _playerDeadFlag = false;
             //Debug.Log("Marbles Eating each other again");
         }
-        if (_gameStart == false && Time.realtimeSinceStartup > _realStartupTime)
+        if (_gameStart == false && (Time.realtimeSinceStartup - _PSControllerInitTime) > _realStartupTime)
         {
             _gameStart = true;
             foreach (var child in _marbles)
             {
-                child.gameObject.GetComponent<MoveMarble>().GameStart = _gameStart;
-                child.gameObject.GetComponent<MoveMarble>().canEatMarbles = true;
+                child.gameObject.GetComponent<MarbleController>().GameStart = _gameStart;
+                child.gameObject.GetComponent<MarbleController>().canEatMarbles = true;
             }
             //Debug.Log("Game Started!");
         }
@@ -73,7 +75,7 @@ public class PSController : MonoBehaviour
             Debug.Log("Player Died, everything stops");
             foreach (var child in _marbles)
             {
-                child.gameObject.GetComponent<MoveMarble>().canEatMarbles = false;
+                child.gameObject.GetComponent<MarbleController>().canEatMarbles = false;
                 child.gameObject.GetComponent<Rigidbody>().AddForce(-new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)) *40, ForceMode.VelocityChange);
             }
         }
@@ -82,8 +84,8 @@ public class PSController : MonoBehaviour
             Debug.Log("Player respawned, Start everything back");
             foreach (var child in _marbles)
             {
-                child.gameObject.GetComponent<MoveMarble>().canEatMarbles = true;
-                child.gameObject.GetComponent<MoveMarble>().direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)); ;
+                child.gameObject.GetComponent<MarbleController>().canEatMarbles = true;
+                child.gameObject.GetComponent<MarbleController>().direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)); ;
             }
         }
     }
@@ -111,7 +113,7 @@ public class PSController : MonoBehaviour
         {
             if (marble.gameObject.activeInHierarchy)
             {
-                marble.GetComponent<MoveMarble>().OnPlayerMarbleScaleChange(scale);
+                marble.GetComponent<MarbleController>().OnPlayerMarbleScaleChange(scale);
             }
         }
     }
@@ -122,7 +124,7 @@ public class PSController : MonoBehaviour
     }
     private void OnWorldScaleChange(float scale)
     {
-        Debug.LogError(scale);
+        Debug.Log(scale);
         foreach (var marble in _marbles)
         {
             if (marble.gameObject.activeInHierarchy)

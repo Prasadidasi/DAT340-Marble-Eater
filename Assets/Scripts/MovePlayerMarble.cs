@@ -56,7 +56,7 @@ public class MovePlayerMarble : MonoBehaviour
         if (transform.localScale.x > other.transform.localScale.x)
         {
             Eat(other.gameObject);
-            other.gameObject.GetComponent<MoveMarble>().Respawn(other.gameObject);
+            other.gameObject.GetComponent<MarbleController>().Respawn(other.gameObject);
             NotifyScaleChange();
             GetComponent<Rigidbody>().mass = (GetComponent<Rigidbody>().mass + other.gameObject.GetComponent<Rigidbody>().mass * 0.33f);
         }
@@ -70,7 +70,7 @@ public class MovePlayerMarble : MonoBehaviour
         float newScale = transform.localScale.x + Mathf.Abs((marble.transform.localScale.x) * growthRate);
         if (newScale > maxPlayerSize) newScale = maxPlayerSize;
         transform.localScale = new Vector3(newScale, newScale, newScale);
-        marble.GetComponent<MoveMarble>().OnPlayerMarbleScaleChange(newScale);
+        marble.GetComponent<MarbleController>().OnPlayerMarbleScaleChange(newScale);
         //Debug.Log(marble.gameObject.name + " is Destroyed");
 
         //Mix the mass

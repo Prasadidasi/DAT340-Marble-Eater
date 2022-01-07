@@ -59,7 +59,7 @@ public class ARImageTracker : MonoBehaviour
     {        
         Debug.Log("Handling Image Adding");
         Transform spawnLocation = addedImage.transform;       
-        spawnLocation.localPosition += new Vector3(0, 0.2f, 0);
+        //spawnLocation.localPosition += new Vector3(0, 0.2f, 0);
         _instantiatedPrefab = Instantiate(prefab, spawnLocation);
         _instantiatedPrefab.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
         
@@ -82,5 +82,24 @@ public class ARImageTracker : MonoBehaviour
     {
         
     }
-    
+
+    private void Update()
+    {
+        if(WorldSetup.debugMode == true)
+        {
+            if (WorldSetup.isScanning)
+            {
+                GameObject origin = new GameObject();
+                origin.transform.position = Vector3.zero;
+                origin.transform.rotation = Quaternion.Euler(Vector3.zero);
+                _instantiatedPrefab = Instantiate(prefab, origin.transform);
+                _instantiatedPrefab.transform.parent = GetComponent<ARSessionOrigin>().trackablesParent;
+
+                WorldSetup.isScanning = false;
+                isWorldSpawned = true;
+                WorldSetup.UpdateBoolChecks();
+               
+            }
+        }
+    }
 }

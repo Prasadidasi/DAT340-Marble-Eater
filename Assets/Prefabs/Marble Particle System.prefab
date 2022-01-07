@@ -49,5 +49,5 @@ MonoBehaviour:
   startupTime: 10
   GrowthRate: 0.2
   maxMarbleSize: 4
-  SpawnArea: {fileID: 160952591886515788, guid: acc3151fca421574a86d8d95245cf5a3, type: 3}
+  SpawnArea: {fileID: 0}
   MarbleSizeModifier: 15

@@ -13,6 +13,7 @@ public class RadioButtonController : MonoBehaviour
     [SerializeField] private float PositionModifier = 0.01f;
     [SerializeField] private int RotationModifier = 10;
     private GameObject InstantiatedPrefab;
+    private Vector3 localScale;
    
     // Start is called before the first frame update
     void OnEnable()
@@ -56,10 +57,10 @@ public class RadioButtonController : MonoBehaviour
                         InstantiatedPrefab.transform.localScale += new Vector3(ScaleModifier * sign, 0, 0);
                         break;
                     case "Y":
-                        var localScale = InstantiatedPrefab.transform.localScale;
+                        localScale = InstantiatedPrefab.transform.localScale;
                         localScale += new Vector3(0, ScaleModifier * sign, 0);
                         InstantiatedPrefab.transform.localScale = localScale;
-                        NotifyWorldYScale(localScale.y);
+                       
                         break;
                     case "Z":
                         InstantiatedPrefab.transform.localScale += new Vector3(0, 0, ScaleModifier * sign);
@@ -109,10 +110,15 @@ public class RadioButtonController : MonoBehaviour
 
     public void Disable()
     {
-        //Deploy();
+        Deploy();
         gameObject.SetActive(false);
     }
     
+    void Deploy()
+    {
+        InstantiatedPrefab.GetComponent<PSController>().enabled = true;
+        NotifyWorldYScale(localScale.y);
+    }
     private void NotifyWorldYScale(float y)
     {
         Agent.Instance.WorldYScale = y;

@@ -7,7 +7,7 @@ public class WorldSetup : MonoBehaviour
     [SerializeField] GameObject ScanUI;
     [SerializeField] GameObject WorldSettingUI;
     [SerializeField] GameObject DeployUI;
-    [SerializeField] private bool debugMode;
+    public bool debugMode;
     ScanController ScanController;
     [HideInInspector] public ARImageTracker ARImageTracker;
     [HideInInspector] public RadioButtonController RadioButtonController;
@@ -46,12 +46,14 @@ public class WorldSetup : MonoBehaviour
 
     public void UpdateBoolChecks() {
 
-        if (debugMode != true)
-        {
+      //  if (debugMode != true)
+       // {
             isScanning = ScanController.isScanning;
             isWorldSpawned = ARImageTracker.isWorldSpawned;
             isDeployed = DeployButtonController.isDeployed;
-        }
+       // }
+
+       
         if (isWorldSpawned == true && isDeployed == false)
         {
             ScanController.Disable();
