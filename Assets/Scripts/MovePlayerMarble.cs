@@ -15,11 +15,14 @@ public class MovePlayerMarble : MonoBehaviour
     [SerializeField] private GameObject hitEffect;
     void Start()
     {
+        transform.SetParent(transform.parent.parent);
         Invoke("NotifyScaleChange", 0.0f);
-        //NotifyScaleChange();
         NotifyLives();
         deathTimer = 3;
-        initialSize = transform.localScale;
+        initialSize = new Vector3(Agent.Instance.PlayerMarbleScale, Agent.Instance.PlayerMarbleScale,
+            Agent.Instance.PlayerMarbleScale);
+        transform.localScale = initialSize;
+        //initialSize = transform.localScale;
     }
 
     private void Update()

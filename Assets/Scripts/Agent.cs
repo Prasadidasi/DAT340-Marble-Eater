@@ -12,6 +12,7 @@ public class Agent : MonoBehaviour
     public PlayerScaleChangeHandler OnPlayerScaleChangeEvent;
     public WorldScaleChangeHandler OnWorldScaleChangeEvent;
     public float WorldYScale { get; set; }
+    public float MarbleSizeModifier { get; set; }
     public float PlayerMarbleScale { get; set; }
     public int PlayerMarbleLives { get; set; }
     public int GameStartTimer { get; set; }
@@ -28,6 +29,7 @@ public class Agent : MonoBehaviour
     {
         
         Instance = this;
+        Instance.MarbleSizeModifier = 2f;
         Instance.PlayerMarbleScale = 1.5f;
         Instance.PlayerMarbleLives = 0;
         Instance.GameStartTimer = 0;

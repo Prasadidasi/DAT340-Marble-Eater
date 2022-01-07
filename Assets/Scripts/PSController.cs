@@ -12,15 +12,19 @@ public class PSController : MonoBehaviour
     [SerializeField] private float GrowthRate = 0.2f;
     [SerializeField] private float maxMarbleSize = 4;
     [SerializeField] private Transform SpawnArea;
-    [SerializeField] private float MarbleSizeModifier = 2;
+    [SerializeField] private float MarbleSizeModifier = 4;
 
     private bool _gameStart = false;
     private bool _playerDeadFlag = true;
     private float _PSControllerInitTime;
 
-    void OnEnable()
+    void Awake()
     {
         AddObserver();
+        NotifyMarbleSizeModifier(MarbleSizeModifier);
+    }
+    void OnEnable()
+    {
         _PSControllerInitTime = Time.realtimeSinceStartup;
         _marbles = new Transform[marbleNum];
         Agent.Instance.PlayerMarbleScale /= MarbleSizeModifier;
@@ -128,6 +132,11 @@ public class PSController : MonoBehaviour
     {
         Debug.Log("Timer is: " + timer);
         Agent.Instance.GameStartTimer = timer;
+    }
+
+    private void NotifyMarbleSizeModifier(float modifier)
+    {
+        Agent.Instance.MarbleSizeModifier = modifier;
     }
     private void OnWorldScaleChange(float scale)
     {
