@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4406151299215108732}
   - component: {fileID: 7316312402978165634}
   - component: {fileID: -2551318280348917366}
-  - component: {fileID: 2265775501507499733}
+  - component: {fileID: 6230009845405225865}
   m_Layer: 0
   m_Name: Marble
   m_TagString: Marble
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &2265775501507499733
+--- !u!114 &6230009845405225865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,12 +122,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 839179604707747453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b665fbcbd1b2104c807b6af6c1e936a, type: 3}
+  m_Script: {fileID: 11500000, guid: 848bedc922376844c8b81dd82509e567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   GameStart: 0
-  growthRate: 0.2
-  maxMarbleSize: 4
+  growthRate: 0
+  maxMarbleSize: 0
   SpawnArea: {fileID: 0}
   canEatMarbles: 0

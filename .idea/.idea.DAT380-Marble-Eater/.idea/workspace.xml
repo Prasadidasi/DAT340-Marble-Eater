@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9080b57b-ab8f-4193-aac7-a275c564b842" name="Changes" comment="Fixed Marble Scaling">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DAT380-Marble-Eater/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DAT380-Marble-Eater/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AR-Scripts/ARImageTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AR-Scripts/ARImageTracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Agent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Agent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PSController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PSController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Marble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Marble.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,45 +30,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/XR/Loaders/AR Core Loader.asset.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/Automation/common.sh.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/DeployButtonController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/ARImageTracker.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/Automation/common.sh.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/Automation/disable_lunar_console.sh.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Prefabs/Marble Particle System.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/ARImageTracker.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/AndroidPlugin.cs.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Prefabs/GameWorld.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/ARImageTracker.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/ARImageTracker.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/UI/ActionsAndVariablesWindow.cs.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/Automation/disable_lunar_console.sh.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/AndroidPlugin.cs.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/ARImageTracker.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/LunarConsole/Editor/Automation/disable_lunar_console.sh.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/MoveMarble.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PSController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/WorldSetup.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/AR-Scripts/RadioButtonController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MarbleController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/MoveMarble.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Agent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/loryenger/Projects/DAT380-Marble-Eater/Assets/Scripts/PSController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
