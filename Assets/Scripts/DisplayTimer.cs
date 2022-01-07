@@ -13,7 +13,9 @@ public class DisplayTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         timer = Agent.Instance.GameStartTimer;
+       // Debug.Log(timer);
         if (timer > 0)
             enemiesEaten.text = "GAME STARTS IN " + timer.ToString();
         else { 

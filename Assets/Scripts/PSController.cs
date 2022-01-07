@@ -12,7 +12,7 @@ public class PSController : MonoBehaviour
     [SerializeField] private float GrowthRate = 0.2f;
     [SerializeField] private float maxMarbleSize = 4;
     [SerializeField] private Transform SpawnArea;
-    [SerializeField] private float MarbleSizeModifier = 15;
+    [SerializeField] private float MarbleSizeModifier = 2;
 
     private bool _gameStart = false;
     private bool _playerDeadFlag = true;
@@ -24,7 +24,9 @@ public class PSController : MonoBehaviour
         _PSControllerInitTime = Time.realtimeSinceStartup;
         _marbles = new Transform[marbleNum];
         Agent.Instance.PlayerMarbleScale /= MarbleSizeModifier;
+        Debug.Log("WorldScale:" + Agent.Instance.WorldYScale);
         float y = Agent.Instance.WorldYScale / MarbleSizeModifier;
+        Debug.Log("Marble Size:" + y);
         marblePrefab.localScale = new Vector3(y, y, y);
        // Debug.Log("Parent scale: " + marblePrefab.localScale);
        Debug.Log("PS init");

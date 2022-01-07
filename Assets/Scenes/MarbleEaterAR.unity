@@ -1798,7 +1798,7 @@ MonoBehaviour:
   ScanUI: {fileID: 1212370218}
   WorldSettingUI: {fileID: 1004685450}
   DeployUI: {fileID: 1231698746}
-  debugMode: 0
+  debugMode: 1
   ARImageTracker: {fileID: 0}
   RadioButtonController: {fileID: 0}
   DeployButtonController: {fileID: 0}

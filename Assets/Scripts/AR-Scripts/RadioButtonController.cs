@@ -121,6 +121,6 @@ public class RadioButtonController : MonoBehaviour
     private void NotifyWorldYScale(float y)
     {
         Agent.Instance.WorldYScale = y;
-        Agent.Instance.OnWorldScaleChangeEvent(Agent.Instance.WorldYScale);
+       // Agent.Instance.OnWorldScaleChangeEvent(Agent.Instance.WorldYScale);
     }
 }   

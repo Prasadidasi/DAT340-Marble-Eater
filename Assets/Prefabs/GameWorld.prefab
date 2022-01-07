@@ -65,7 +65,7 @@ MonoBehaviour:
   GrowthRate: 0.2
   maxMarbleSize: 4
   SpawnArea: {fileID: 160952591886515788}
-  MarbleSizeModifier: 15
+  MarbleSizeModifier: 2
 --- !u!1 &160952591937625728
 GameObject:
   m_ObjectHideFlags: 0

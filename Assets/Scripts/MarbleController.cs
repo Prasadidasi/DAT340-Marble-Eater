@@ -16,7 +16,7 @@ public class MarbleController : MonoBehaviour
     void Start()
     {
         Alive = true;
-        // Color randomColor = ;
+        
         float scale = 1.5f * Random.value + 0.3f;
         // GetComponent<Renderer>().material.SetColor("_Color", Color.red);
         //ChangeColor(Agent.Instance.PlayerMarbleScale);
