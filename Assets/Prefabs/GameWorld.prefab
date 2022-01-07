@@ -63,7 +63,7 @@ MonoBehaviour:
   speed: 1
   startupTime: 10
   GrowthRate: 0.2
-  maxMarbleSize: 4
+  maxMarbleSize: 2
   SpawnArea: {fileID: 160952591886515788}
   MarbleSizeModifier: 15
 --- !u!1 &160952591937625728
