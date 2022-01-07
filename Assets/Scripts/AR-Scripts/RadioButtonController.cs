@@ -22,6 +22,7 @@ public class RadioButtonController : MonoBehaviour
         IncrementToggle = false;
         DecrementToggle = false;
         InstantiatedPrefab = WorldSetup.ARImageTracker._instantiatedPrefab;
+        localScale = InstantiatedPrefab.transform.localScale;
     }
 
     private void Update()
@@ -57,7 +58,6 @@ public class RadioButtonController : MonoBehaviour
                         InstantiatedPrefab.transform.localScale += new Vector3(ScaleModifier * sign, 0, 0);
                         break;
                     case "Y":
-                        localScale = InstantiatedPrefab.transform.localScale;
                         localScale += new Vector3(0, ScaleModifier * sign, 0);
                         InstantiatedPrefab.transform.localScale = localScale;
                        
@@ -104,7 +104,6 @@ public class RadioButtonController : MonoBehaviour
 
     public void Enable()
     {
-       // Debug.Log("enabling");
         gameObject.SetActive(true);
     }
 

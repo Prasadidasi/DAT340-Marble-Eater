@@ -16,14 +16,12 @@ public class PSController : MonoBehaviour
 
     private bool _gameStart = false;
     private bool _playerDeadFlag = true;
-    private int _realStartupTime;
     private float _PSControllerInitTime;
 
     void OnEnable()
     {
         AddObserver();
         _PSControllerInitTime = Time.realtimeSinceStartup;
-        _realStartupTime = startupTime + 3;
         _marbles = new Transform[marbleNum];
         Agent.Instance.PlayerMarbleScale /= MarbleSizeModifier;
         float y = Agent.Instance.WorldYScale / MarbleSizeModifier;
@@ -51,9 +49,12 @@ public class PSController : MonoBehaviour
             _playerDeadFlag = false;
             //Debug.Log("Marbles Eating each other again");
         }
-        if (_gameStart == false && (Time.realtimeSinceStartup - _PSControllerInitTime) > _realStartupTime)
+
+        
+        if (_gameStart == false && (Time.realtimeSinceStartup - _PSControllerInitTime) > startupTime)
         {
             _gameStart = true;
+           
             foreach (var child in _marbles)
             {
                 child.gameObject.GetComponent<MarbleController>().GameStart = _gameStart;
@@ -62,10 +63,13 @@ public class PSController : MonoBehaviour
             //Debug.Log("Game Started!");
         }
 
-        int timer = _realStartupTime - (int)Time.realtimeSinceStartup;
+        int timer = startupTime - (int)Time.realtimeSinceStartup;
         NotifyTimer(timer);
         if (_gameStart == true)
+        {
+            Debug.Log("GAME STARTED");
             NotifyTimer(0);
+        }
     }
 
     public void changeMarbleEating(bool isPlayerDead)

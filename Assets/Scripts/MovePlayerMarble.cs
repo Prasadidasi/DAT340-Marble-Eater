@@ -52,7 +52,7 @@ public class MovePlayerMarble : MonoBehaviour
         if (!other.gameObject.CompareTag("Marble")) return;
 
         if (!isGameStart()) return;
-
+       
         if (transform.localScale.x > other.transform.localScale.x)
         {
             Eat(other.gameObject);

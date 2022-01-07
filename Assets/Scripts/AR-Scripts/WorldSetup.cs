@@ -46,13 +46,10 @@ public class WorldSetup : MonoBehaviour
 
     public void UpdateBoolChecks() {
 
-      //  if (debugMode != true)
-       // {
+    
             isScanning = ScanController.isScanning;
             isWorldSpawned = ARImageTracker.isWorldSpawned;
             isDeployed = DeployButtonController.isDeployed;
-       // }
-
        
         if (isWorldSpawned == true && isDeployed == false)
         {
