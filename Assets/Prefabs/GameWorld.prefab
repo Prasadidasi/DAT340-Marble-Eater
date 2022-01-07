@@ -60,10 +60,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   marblePrefab: {fileID: 1640029352530731306, guid: 6d0d228243d4546209c13dbc5779ac02, type: 3}
-  marbleNum: 60
+  marbleNum: 70
   speed: 1
   startupTime: 10
-  GrowthRate: 0.2
+  GrowthRate: 0.1
   maxMarbleSize: 2
   SpawnArea: {fileID: 160952591886515788}
   MarbleSizeModifier: 15

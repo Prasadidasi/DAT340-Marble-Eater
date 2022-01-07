@@ -1739,7 +1739,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465058828}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d70f7908f8905cb4d90dda208f30d5e8, type: 3}
   m_Name: 
@@ -1748,8 +1748,8 @@ MonoBehaviour:
   touchSpeedModifier: 0.01
   FPSCamera: {fileID: 640848541}
   marbleHolder: {fileID: 1656542004}
+  playerMarblePrefab: {fileID: 839179604707747453, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
   lerpSpeed: 15
-  playerMarble: {fileID: 839179604707747453, guid: ee30fae55ec29de4f8944d54e1bce43c, type: 3}
 --- !u!143 &465058836
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1798,10 +1798,11 @@ MonoBehaviour:
   ScanUI: {fileID: 1212370218}
   WorldSettingUI: {fileID: 1004685450}
   DeployUI: {fileID: 1231698746}
-  debugMode: 1
+  debugMode: 0
   ARImageTracker: {fileID: 0}
   RadioButtonController: {fileID: 0}
   DeployButtonController: {fileID: 0}
+  MarbleCatcher: {fileID: 0}
   isScanning: 0
   isWorldSpawned: 0
   isDeployed: 0
@@ -4290,8 +4291,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656542003}
-  m_LocalRotation: {x: -0, y: 0.66319025, z: -0, w: 0.7484509}
-  m_LocalPosition: {x: -0.26, y: -0.028, z: 2.59}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.531}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 640848545}
